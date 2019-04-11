@@ -41,9 +41,6 @@ PHP版本：php >= 5.6 (支持php7)
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/1225/133326_84f1f2ed_555541.png "YZNCMS后台管理系统.png")
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/1225/133333_55b963a0_555541.png "YZNCMS后台管理系统1.png")
 
-[捐赠]  
-![输入图片说明](https://images.gitee.com/uploads/images/2019/0110/175836_7cb23388_555541.jpeg "1547112799941_01.jpg")
-![输入图片说明](https://images.gitee.com/uploads/images/2019/0110/181152_57b5113e_555541.jpeg "mm_facetoface_collect_qrcode_1547113957376_01.jpg")
 
 [开源协议]  
 YznCMS遵循Apache2开源协议发布，并提供免费使用。  
