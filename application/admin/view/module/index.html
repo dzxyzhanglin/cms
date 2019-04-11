@@ -1,0 +1,76 @@
+{extend name="index_layout"/}
+{block name="main"}
+<div class="layui-card">
+    <div class="layui-card-header">模块管理</div>
+    <div class="layui-card-body">
+        <table class="layui-hide" id="table" lay-filter="table"></table>
+    </div>
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <a class="layui-btn layui-btn-sm" id="local-install">本地安装</a>
+        </div>
+    </script>
+    <script type="text/html" id="titleTpl">
+        {{#  if(d.installtime == "" || d.installtime == null || d.installtime == undefined){ }}
+    <a class="layui-btn layui-btn-xs" lay-event="install">安装</a>
+{{#  } else { }}
+    {{#  if(d.iscore == 0){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="uninstall">卸载</a>
+    {{#  } }}
+{{#  } }}
+</script>
+</div>
+{/block}
+{block name="script"}
+<script>
+layui.use(['table', 'upload'], function() {
+    var table = layui.table,
+        $ = layui.$,
+        upload = layui.upload;
+    table.render({
+        elem: '#table',
+        toolbar: '#toolbarDemo',
+        url: '{:url("admin/module/index")}',
+        cols: [
+            [
+                { field: 'name', width: 150, title: '名称' },
+                { field: 'version', width: 150, title: '版本' },
+                { field: 'author', width: 150, title: '作者' },
+                { field: 'introduce', title: '简介' },
+                { field: 'installtime', width: 200, title: '安装时间', templet: '<div>{{#  if(d.installtime){ }} {{d.installtime}} {{#  } else { }} / {{#  } }}</div>' },
+                { fixed: 'right', width: 150, title: '操作', templet: '#titleTpl' }
+            ]
+        ]
+    });
+
+    //执行实例
+    var uploadInst = upload.render({
+        elem: '#local-install',
+        url: '{:url("admin/module/local")}',
+        accept: 'file',
+        exts: 'zip',
+        done: function(res) {
+            //上传完毕回调
+            if (res.code == 1) {
+                layer.alert(res.msg);
+            }else{
+                layer.alert(res.msg);
+            }
+        },
+        error: function() {
+            //请求异常回调
+        }
+    });
+
+    //监听行工具事件
+    table.on('tool(table)', function(obj) {
+        var data = obj.data;
+        if (obj.event === 'install') {
+            window.open('{:url("admin/module/install")}' + "?module=" + data.module, '_self')
+        } else if (obj.event === 'uninstall') {
+            window.open('{:url("admin/module/uninstall")}' + "?module=" + data.module, '_self')
+        }
+    });
+});
+</script>
+{/block}

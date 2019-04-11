@@ -1,0 +1,74 @@
+{extend name="index_layout"/}
+{block name="main"}
+<div class="layui-card">
+    <div class="layui-card-header">管理日志</div>
+    <div class="layui-card-body">
+        <table class="layui-hide" id="table" lay-filter="table"></table>
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="dellog">删除一个月前日志</button>
+          </div>
+        </script>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+layui.use('table', function() {
+    var table = layui.table,
+        $ = layui.$;
+    table.render({
+        elem: '#table',
+        toolbar: '#toolbarDemo',
+        url: '{:url("admin/adminlog/index")}',
+        cols: [
+            [
+                { field: 'id', width: 80, title: 'ID', sort: true },
+                { field: 'uid', width: 80, title: '用户ID' },
+                { field: 'info', title: '提示' },
+                { field: 'get', title: '操作URL' },
+                { field: 'create_time', width: 180, title: '时间' },
+                { field: 'ip', width: 100, title: 'IP' },
+                { field: 'status', width: 100, title: '状态', templet: '<div>{{#  if(d.status){ }} success {{#  } else { }} <font color="#FF0000">error</font> {{#  } }} </div>' },
+            ]
+        ],
+        page: {}
+    });
+
+    table.on('toolbar(table)', function(obj) {
+        if (obj.event === 'dellog') {
+            layer.confirm('确定删除这些数据？', { icon: 3, title: '提示' }, function(index) {
+                layer.close(index);
+                $.ajax({
+                    url: '{:url('admin/adminlog/deletelog')}',
+                    type: "GET",
+                    success: function(data) {
+                        if (data.code == 1) {
+                            if (data.url) {
+                                layer.msg(data.msg + ' 页面即将自动跳转~');
+                            } else {
+                                layer.msg(data.msg);
+                            }
+                            setTimeout(function() {
+                                if (data.url) {
+                                    location.href = data.url;
+                                } else {
+                                    location.reload();
+                                }
+                            }, 1500);
+                        } else {
+                            layer.msg(data.msg);
+                            setTimeout(function() {
+                                if (data.url) {
+                                    location.href = data.url;
+                                }
+                            }, 1500);
+                        }
+                    }
+                });
+            });
+        }
+    })
+});
+</script>
+{/block}

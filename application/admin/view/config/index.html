@@ -1,0 +1,117 @@
+{extend name="index_layout"/}
+{block name="main"}
+<div class="layui-card">
+    <div class="layui-card-body">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                {volist name="$groupArray" id="vo"}
+                <li class="{if $key==$group}layui-this{/if}"><a href="{:url('index',['group'=>$key])}">{$vo}</a></li>
+                {/volist}
+            </ul>
+            <div class="layui-tab-content">
+                <table class="layui-hide" id="table" lay-filter="table"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+    <a class="layui-btn layui-btn-sm" href="{:url('admin/config/add')}">新增配置项</a>
+  </div>
+</script>
+<script type="text/html" id="barTool">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/html" id="switchTpl">
+    <input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="开启|关闭" lay-filter="status" {{ d.status==1 ? 'checked' : '' }}>
+</script>
+{/block}
+{block name="script"}
+<script>
+layui.use('table', function() {
+    var table = layui.table,
+        $ = layui.$,
+        form = layui.form;
+    table.render({
+        elem: '#table',
+        toolbar: '#toolbarDemo',
+        url: '{:url("admin/config/index",["group"=>$group])}',
+        cols: [
+            [
+                { field: 'listorder', width: 70, title: '排序', edit: 'text' },
+                { field: 'name', title: '名称' },
+                { field: 'title', title: '标题' },
+                { field: 'ftitle', width: 150, title: '类型' },
+                { field: 'update_time', width: 200, title: '更新时间' },
+                { field: 'status', title: '状态', width: 100, templet: '#switchTpl', unresize: true },
+                { fixed: 'right', width: 120, title: '操作', toolbar: '#barTool' }
+            ]
+        ],
+    });
+
+            //监听单元格编辑
+    table.on('edit(table)', function(obj) {
+        var value = obj.value,data = obj.data;
+        $.post('{:url("admin/config/listorder")}', {'id': data.id,'value':value }, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                layer.msg(data.msg);
+            }
+
+        })
+    });
+
+    //监听状态操作
+    form.on('switch(status)', function(obj) {
+        var _this = $(obj.elem);
+        $.post('{:url("admin/config/setstate")}', { 'id':this.value,'status':obj.elem.checked }, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                layer.msg(data.msg);
+            }
+
+        });
+    });
+
+    //监听行工具事件
+    table.on('tool(table)', function(obj) {
+        var data = obj.data;
+        //console.log(obj);
+        if (obj.event === 'del') {
+            layer.confirm('确定删除这条数据？', { icon: 3, title: '提示' }, function(index) {
+                layer.close(index);
+                $.post('{:url("admin/config/del")}', { 'id': data.id }, function(data) {
+                    if (data.code == 1) {
+                        if (data.url) {
+                            layer.msg(data.msg + ' 页面即将自动跳转~');
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                        setTimeout(function() {
+                            if (data.url) {
+                                location.href = data.url;
+                            } else {
+                                location.reload();
+                            }
+                        }, 1500);
+                    } else {
+                        layer.msg(data.msg);
+                        setTimeout(function() {
+                            if (data.url) {
+                                location.href = data.url;
+                            }
+                        }, 1500);
+                    }
+
+                });
+            });
+        } else if (obj.event === 'edit') {
+            window.open('{:url("admin/config/edit")}' + "?id=" + data.id, '_self')
+        }
+    });
+});
+</script>
+{/block}

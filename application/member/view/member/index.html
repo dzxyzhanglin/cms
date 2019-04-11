@@ -1,0 +1,102 @@
+{extend name="admin@index_layout"/}
+{block name="main"}
+<div class="layui-card">
+    <div class="layui-card-header">会员列表</div>
+    <div class="layui-card-body">
+        <table class="layui-hide" id="table" lay-filter="table"></table>
+    </div>
+</div>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <a class="layui-btn layui-btn-sm" href="{:url('member/member/add')}">添加会员</a>
+    </div>
+</script>
+<script type="text/html" id="barTool">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/html" id="switchTpl">
+    <input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="正常|禁用" lay-filter="status" {{ d.status==1 ? 'checked' : '' }}>
+</script>
+{/block}
+{block name="script"}
+<script>
+layui.use('table', function() {
+    var table = layui.table,
+        $ = layui.$,
+        form = layui.form;
+    table.render({
+        elem: '#table',
+        toolbar: '#toolbarDemo',
+        url: '{:url("member/member/index")}',
+        cols: [
+            [
+                { field: 'id', width: 80, title: '用户ID' },
+                { field: 'username', width: 150, title: '用户名' },
+                { field: 'nickname', width: 150, title: '姓名' },
+                { field: 'email', width: 150, title: '邮箱' },
+                { field: 'reg_time', title: '注册日期' },
+                { field: 'last_login_time', title: '最后登录' },
+                //{ field: 'amount', width: 120, title: '金钱总数' },
+                //{ field: 'point', width: 120, title: '积分总数' },
+                { field: 'login', width: 120, title: '登录次数' },
+                { field: 'status', width: 100, align: "center", title: '状态',templet: '#switchTpl', unresize: true },
+                { fixed: 'right', width: 120, title: '操作', templet: '#barTool' }
+            ]
+        ],
+        page: true
+    });
+
+    //监听行工具事件
+    table.on('tool(table)', function(obj) {
+        var data = obj.data;
+        if (obj.event === 'del') {
+            layer.confirm('确定删除这条数据？', { icon: 3, title: '提示' }, function(index) {
+                layer.close(index);
+                $.post('{:url("member/member/delete")}', { 'id': data.id }, function(data) {
+                    if (data.code == 1) {
+                        if (data.url) {
+                            layer.msg(data.msg + ' 页面即将自动跳转~');
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                        setTimeout(function() {
+                            if (data.url) {
+                                location.href = data.url;
+                            } else {
+                                location.reload();
+                            }
+                        }, 1500);
+                    } else {
+                        layer.msg(data.msg);
+                        setTimeout(function() {
+                            if (data.url) {
+                                location.href = data.url;
+                            }
+                        }, 1500);
+                    }
+
+                });
+            });
+        } else if (obj.event === 'edit') {
+            window.open('{:url("member/member/edit")}' + "?id=" + data.id, '_self')
+        }
+    });
+
+    //监听状态操作
+    form.on('switch(status)', function(obj) {
+        var _this = $(obj.elem);
+        $.post('{:url("member/member/setstate")}', { 'id': this.value,'status':obj.elem.checked}, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                !obj.elem.checked ? _this.prop('checked',true) : _this.removeAttr('checked');
+                form.render('checkbox');
+                layer.msg(data.msg);
+            }
+
+        });
+    });
+});
+</script>
+{/block}

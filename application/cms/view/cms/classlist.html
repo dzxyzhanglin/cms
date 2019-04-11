@@ -1,0 +1,181 @@
+{extend name="admin@index_layout"/}
+{block name="main"}
+<style type="text/css">
+.childrenBody {
+    background: #fff;
+}
+</style>
+<div class="layui-form">
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</div>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+      <a class="layui-btn layui-btn-sm" href="{:url('cms/cms/add',['catid'=>$catid])}">新增内容</a>
+      <a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delAll">批量删除</a>
+    </div>
+</script>
+<script type="text/html" id="barTool">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/html" id="title">
+  {{ d.title }}
+  {{# if(d.flag.indexOf("1")!==-1){ }}
+  <span class="text-danger">[置顶]</span>
+  {{#  } }}
+  {{# if(d.flag.indexOf("2")!==-1){ }}
+  <span class="text-danger">[头条]</span>
+  {{#  } }}
+  {{# if(d.flag.indexOf("3")!==-1){ }}
+  <span class="text-danger">[特荐]</span>
+  {{#  } }}
+  {{# if(d.flag.indexOf("4")!==-1){ }}
+  <span class="text-danger">[推荐]</span>
+  {{#  } }}
+  {{# if(d.flag.indexOf("6")!==-1){ }}
+  <span class="text-danger">[热点]</span>
+  {{#  } }}
+  {{# if(d.flag.indexOf("6")!==-1){ }}
+  <span class="text-danger">[幻灯]</span>
+  {{#  } }}
+</script>
+<script type="text/html" id="statusTpl">
+    <input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="显示|隐藏" lay-filter="status" {{ d.status==1 ? 'checked' : '' }}>
+</script>
+{/block}
+{block name="script"}
+<script>
+var catid = '{$catid}';
+layui.use('table', function() {
+    var table = layui.table,
+        $ = layui.$,
+        form = layui.form;
+    table.render({
+        elem: '#table',
+        toolbar: '#toolbarDemo',
+        url: '{:url("cms/cms/classlist",["catid"=>$catid])}',
+        cols: [
+            [
+                { type: 'checkbox', fixed: 'left' },
+                { field: 'listorder', width: 70, title: '排序', edit: 'text' },
+                { field: 'id', width: 70, title: 'ID' },
+                { field: 'title', title: '标题',templet: '#title'},
+                { field: 'hits', width: 80, title: '点击量' },
+                { field: 'updatetime', width: 180, title: '更新时间' },
+                { field: 'url',width: 60,align:"center", title: 'URL',templet:'<div><a href="{{ d.url }}" target="_blank"><i class="iconfont icon-lianjie"></i></a></div>'},
+                { field: 'status', width: 100, align: "center", title: '状态', templet: '#statusTpl', unresize: true },
+                { fixed: 'right', width: 150, title: '操作', toolbar: '#barTool' }
+            ]
+        ],
+        page: {}
+    });
+
+        //监听单元格编辑
+    table.on('edit(table)', function(obj) {
+        var value = obj.value,data = obj.data;
+        $.post('{:url("cms/cms/listorder")}', {'id': data.id, 'catid': catid, 'value':value }, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                layer.msg(data.msg);
+            }
+
+        })
+    });
+
+            //监听状态操作
+    form.on('switch(status)', function(obj) {
+        var _this = $(obj.elem);
+        $.post('{:url("cms/cms/setstate")}', { 'id': this.value, 'catid': catid, 'status':obj.elem.checked}, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                !obj.elem.checked ? _this.prop('checked',true) : _this.removeAttr('checked');
+                form.render('checkbox');
+                layer.msg(data.msg);
+            }
+
+        });
+    });
+
+
+    table.on('toolbar(table)', function(obj) {
+        if (obj.event === 'delAll') {
+            var checkStatus = table.checkStatus('table'),
+                data = checkStatus.data,
+                ids = [];
+            if (data.length > 0) {
+                for (let i in data) {
+                    ids.push(data[i].id);
+                }
+                layer.confirm('确定删除选中的数据？', { icon: 3, title: '提示信息' }, function(index) {
+                    $.post('{:url("cms/cms/delete",["catid"=>$catid])}', { 'ids': ids }, function(data) {
+                        if (data.code == 1) {
+                            if (data.url) {
+                                layer.msg(data.msg + ' 页面即将自动跳转~');
+                            } else {
+                                layer.msg(data.msg);
+                            }
+                            setTimeout(function() {
+                                if (data.url) {
+                                    location.href = data.url;
+                                } else {
+                                    location.reload();
+                                }
+                            }, 1500);
+                        } else {
+                            layer.msg(data.msg);
+                            setTimeout(function() {
+                                if (data.url) {
+                                    location.href = data.url;
+                                }
+                            }, 1500);
+                        }
+                    });
+                    layer.close(index);
+                })
+            } else {
+                layer.msg("请选择需要删除的数据");
+            }
+        }
+    });
+
+    //监听行工具事件
+    table.on('tool(table)', function(obj) {
+        var data = obj.data;
+        if (obj.event === 'del') {
+            layer.confirm('确定删除这条数据？', { icon: 3, title: '提示' }, function(index) {
+                layer.close(index);
+                $.post('{:url("cms/cms/delete",["catid"=>$catid])}', { 'ids': data.id }, function(data) {
+                    if (data.code == 1) {
+                        if (data.url) {
+                            layer.msg(data.msg + ' 页面即将自动跳转~');
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                        setTimeout(function() {
+                            if (data.url) {
+                                location.href = data.url;
+                            } else {
+                                location.reload();
+                            }
+                        }, 1500);
+                    } else {
+                        layer.msg(data.msg);
+                        setTimeout(function() {
+                            if (data.url) {
+                                location.href = data.url;
+                            }
+                        }, 1500);
+                    }
+
+                });
+            });
+        } else if (obj.event === 'edit') {
+            window.open('{:url("cms/cms/edit",["catid"=>$catid])}' + "?id=" + data.id, '_self')
+        }
+    });
+
+});
+</script>
+{/block}

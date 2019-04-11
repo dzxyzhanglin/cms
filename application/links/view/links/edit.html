@@ -1,0 +1,96 @@
+{extend name="admin@index_layout"/}
+{block name="main"}
+<div class="layui-card">
+    <div class="layui-card-header">添加栏目</div>
+    <div class="layui-card-body">
+        <form class="layui-form form-horizontal" action="" method="post">
+            <div class="layui-form-item">
+                <label>网站名称</label>
+                <div class="w300">
+                    <input type="text" name="name" autocomplete="off" placeholder="网站名称" class="layui-input" value="{$data.name}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label>网站网址</label>
+                <div class="w300">
+                    <input type="text" name="url" autocomplete="off" placeholder="http://" class="layui-input" value="{$data.url}">
+                </div>
+            </div>
+            <div class="layui-form-item web_seo">
+                <label>网站简介</label>
+                <div class="w300">
+                    <textarea name="description" placeholder="网站简介" class="layui-textarea">{$data.description}</textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label>链接类型</label>
+                <div class="w300">
+                    <input type="radio" name="linktype" value="0" {eq name="data.linktype" value="0" }checked{/eq} title="文字链接" lay-filter="type">
+                    <input type="radio" name="linktype" value="1" {eq name="data.linktype" value="1" }checked{/eq} title="logo链接" lay-filter="type">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label>所属分类</label>
+                <div class="w300">
+                    <select name="termsid">
+                        <option value="">==分类选择==</option>
+                        {volist name="Terms" id="vo"}
+                         <option value="{$vo.id}" {eq name="vo.id" value="$data.termsid" }selected{/eq}>{$vo.name}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label>创建新分类</label>
+                <div class="w300">
+                    <input type="text" name="terms[name]" autocomplete="off" placeholder="创建新分类" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label>排序</label>
+                <div class="w300">
+                    <input type="number" name="listorder" autocomplete="off" placeholder="排序" class="layui-input" value="{$data.listorder}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label>状态</label>
+                <div class="w300">
+                    <input type="radio" name="status" value="1" {eq name="data.status" value="1" }checked{/eq} title="已通过" lay-filter="status">
+                    <input type="radio" name="status" value="0" {eq name="data.status" value="0" }checked{/eq} title="未通过" lay-filter="status">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label>网站Logo</label>
+                <div class="layui-form-field-label">
+                    <div class="js-upload-image">
+                        <div id="file_list_image" class="uploader-list">
+                            {notempty name="$data.image"}
+                            <div class="file-item thumbnail">
+                                <img data-original="{$data.image|get_file_path|default='__STATIC__/admin/img/none.png'}" src="{$data.image|get_file_path|default='__STATIC__/admin/img/none.png'}" width="100" style="max-height: 100px;">
+                                <i class="iconfont icon-close remove-picture" data-id="{$data.image}"></i>
+                            </div>
+                            {/notempty}
+                        </div>
+                        <input type="hidden" name="image" data-multiple="false" data-watermark='' data-thumb='' data-size="0" data-ext="gif,jpg,jpeg,bmp,png" id="image" value="{$data.image|default=''}">
+                        <div class="layui-clear"></div>
+                        <div id="picker_image">上传单张图片</div>
+                    </div>
+                </div>
+            </div>
+            <input name="id" type="hidden" value="{$data.id}">
+            <div class="layui-form-item">
+                <div>
+                    <button class="layui-btn ajax-post" lay-submit lay-filter="*" target-form="form-horizontal">立即提交</button>
+                    <a class="layui-btn layui-btn-normal" href="{:url('links/links/index')}">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script type="text/javascript" src="__STATIC__/admin/js/common.js"></script>
+<script type="text/javascript" src="__STATIC__/libs/webuploader/webuploader.min.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/js/form.js"></script>
+<link rel="stylesheet" href="__STATIC__/libs/webuploader/webuploader.css">
+{/block}

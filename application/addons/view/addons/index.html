@@ -1,0 +1,118 @@
+{extend name="admin@index_layout"/}
+{block name="main"}
+<div class="layui-card">
+    <div class="layui-card-header">插件管理</div>
+    <div class="layui-card-body">
+        <table class="layui-hide" id="table" lay-filter="table"></table>
+    </div>
+</div>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+    <a class="layui-btn layui-btn-sm" id="local-install">本地安装</a>
+  </div>
+</script>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container"></div>
+</script>
+<script type="text/html" id="titleTpl">
+    {{#  if(d.uninstall == "" || d.uninstall == null || d.uninstall == undefined){ }}
+    {{#  if(d.configl == "" || d.configl == null || d.configl == undefined){ }}
+    <a class="layui-btn layui-btn-xs" data-url='{:url("addons/addons/config")}' lay-event="config"><i class="icon iconfont icon-shezhi"></i>&nbsp;设置</a>
+    {{#  } }}
+    {{#  if(d.status == 0){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-normal" data-url='{:url("addons/addons/enable")}' lay-event="enable"><i class="icon iconfont icon-qiyong"></i>&nbsp;启用</a>
+    {{#  } else { }}
+    <a class="layui-btn layui-btn-xs layui-btn-warm" data-url='{:url("addons/addons/disable")}' lay-event="disable"><i class="icon iconfont icon-jinyong"></i>&nbsp;禁用</a>
+    {{#  } }}
+    <a class="layui-btn layui-btn-xs layui-btn-danger" data-url='{:url("addons/addons/uninstall")}' lay-event="uninstall"><i class="icon iconfont icon-shanchu"></i>&nbsp;卸载</a>
+{{#  } else { }}
+    <a class="layui-btn layui-btn-xs" data-url='{:url("addons/addons/install")}' lay-event="install"><i class="icon iconfont icon-zidongxiufu"></i>&nbsp;安装</a>
+{{#  } }}
+</script>
+{/block}
+{block name="script"}
+<script>
+layui.use(['table', 'upload'], function() {
+    var table = layui.table,
+        $ = layui.$,
+        upload = layui.upload;
+    table.render({
+        elem: '#table',
+        toolbar: '#toolbarDemo',
+        url: '{:url("addons/addons/index")}',
+        cols: [
+            [
+                { field: 'title', width: 150, title: '名称' },
+                { field: 'name', width: 150, title: '标识' },
+                { field: 'description', title: '描述' },
+                { field: 'status_text', width: 80, title: '状态', templet: '<div>{{#  if(d.status_text){ }} {{d.status_text}} {{#  } else { }} 未安装 {{#  } }}</div>' },
+                { field: 'author', width: 90, title: '作者' },
+                { field: 'version', width: 90, title: '版本' },
+                { fixed: 'right', width: 220, title: '操作', templet: '#titleTpl' }
+            ]
+        ]
+    });
+
+    //执行实例
+    var uploadInst = upload.render({
+        elem: '#local-install',
+        url: '{:url("addons/addons/local")}',
+        accept: 'file',
+        exts: 'zip',
+        done: function(res) {
+            //上传完毕回调
+            if (res.code == 1) {
+                layer.alert(res.msg);
+            }else{
+                layer.alert(res.msg);
+            }
+        },
+        error: function() {
+            //请求异常回调
+        }
+    });
+
+    //监听行工具事件
+    table.on('tool(table)', function(obj) {
+        var data = obj.data;
+        var url = $(this).data('url');
+        if (obj.event === 'install') {
+            layer.confirm('确定执行此操作吗？', { icon: 3, title: '提示' }, function(index) {
+                x_request(url, { 'addon_name': data.name });
+                layer.close(index);
+            });
+        } else if (obj.event === 'config') {
+            window.open(url + "?id=" + data.id, '_self')
+        } else {
+            layer.confirm('确定执行此操作吗？', { icon: 3, title: '提示' }, function(index) {
+                x_request(url, { 'id': data.id });
+                layer.close(index);
+            });
+        }
+    });
+});
+
+function x_request(url, params) {
+    $.post(url, params, function(data) {
+        if (data.code == 1) {
+            if (data.url) {
+                layer.alert(data.msg, { icon: 1 }, function(index) {
+                    layer.close(index);
+                    if (data.url) {
+                        location.href = data.url;
+                    } else {
+                        location.reload();
+                    }
+                });
+            } else {
+                layer.alert(data.msg);
+            }
+
+        } else {
+            layer.alert(data.msg);
+        }
+
+    });
+}
+</script>
+{/block}

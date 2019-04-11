@@ -1,0 +1,4 @@
+<?php
+//000000003600
+ exit();?>
+think_serialize:a:15:{s:2:"id";i:20;s:7:"catname";s:12:"专家介绍";s:6:"catdir";s:6:"expert";s:4:"type";i:2;s:7:"modelid";i:6;s:8:"parentid";i:0;s:11:"arrparentid";s:0:"";s:10:"arrchildid";s:0:"";s:5:"child";i:0;s:5:"image";s:0:"";s:11:"description";s:0:"";s:3:"url";s:58:"http://localhost/YZNCMS/public/index.php/cms/lists/20.html";s:7:"setting";a:6:{s:10:"meta_title";s:0:"";s:13:"meta_keywords";s:0:"";s:16:"meta_description";s:0:"";s:17:"category_template";s:13:"category.html";s:13:"list_template";s:9:"list.html";s:13:"show_template";s:9:"show.html";}s:9:"listorder";i:100;s:6:"status";i:1;}

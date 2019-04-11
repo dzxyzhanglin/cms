@@ -1,0 +1,177 @@
+{extend name="admin@index_layout"/}
+{block name="main"}
+<div class="layui-card">
+    <div class="layui-card-header">字段列表</div>
+    <div class="layui-card-body">
+        <table class="layui-hide" id="table" lay-filter="table"></table>
+    </div>
+</div>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <a class="layui-btn layui-btn-sm" href="{:url('cms/field/add',['modelid'=>$modelid])}">添加字段</a>
+    </div>
+</script>
+<script type="text/html" id="switchTpl">
+    {{#  if(d.iffixed==1){ }}
+    {{#  if(d.status==1){ }}
+    启用
+    {{#  } else { }}
+    禁用
+    {{#  } }}
+    {{#  } else { }}
+    <input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="status" {{ d.status==1 ? 'checked' : '' }}>
+    {{#  } }}
+</script>
+<script type="text/html" id="ifsearchTpl">
+    <input type="checkbox" name="ifsearch" value="{{d.id}}" lay-skin="switch" lay-text="是|否" lay-filter="ifsearch" {{ d.ifsearch==1 ? 'checked' : '' }}>
+</script>
+<script type="text/html" id="ifrequireTpl">
+    <input type="checkbox" name="ifrequire" value="{{d.id}}" lay-skin="switch" lay-text="是|否" lay-filter="ifrequire" {{ d.ifrequire==1 ? 'checked' : '' }}>
+</script>
+<script type="text/html" id="ifeditableTpl">
+    <input type="checkbox" name="ifeditable" value="{{d.id}}" lay-skin="switch" lay-text="显示|隐藏" lay-filter="ifeditable" {{ d.ifeditable==1 ? 'checked' : '' }}>
+</script>
+<script type="text/html" id="barTool">
+    {{#  if(!d.iffixed){ }}
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  } }}
+</script>
+{/block}
+{block name="script"}
+<script>
+layui.use('table', function() {
+    var table = layui.table,
+        $ = layui.$,
+        form = layui.form;
+    table.render({
+        elem: '#table',
+        toolbar: '#toolbarDemo',
+        url: '{:url("cms/field/index",["id"=>$modelid])}',
+        cols: [
+            [
+                { field: 'listorder', width: 60, title: '排序', edit: 'text' },
+                { field: 'id', width: 60, title: 'ID' },
+                { field: 'name', width: 120, title: '字段名称' },
+                { field: 'title', width:120,title: '标题' },
+                { field: 'type',width:100, title: '字段类型' },
+                { field: 'ifsystem',width:60,align:"center", title: '主表',templet: '<div>{{#  if(d.ifsystem){ }} 是 {{#  } }} </div>'},
+                { field: 'create_time',title: '创建时间' },
+                { field: 'ifsearch', width: 90,align:"center", title: '搜索', templet: '#ifsearchTpl', unresize: true },
+                { field: 'ifrequire', width: 90,align:"center", title: '必填', templet: '#ifrequireTpl', unresize: true },
+                { field: 'ifeditable', width: 100,align:"center", title: '显示', templet: '#ifeditableTpl', unresize: true },
+                { field: 'status', width: 100,align:"center", title: '状态', templet: '#switchTpl', unresize: true },
+                { fixed: 'right',width: 120,title: '操作', templet: '#barTool' }
+            ]
+        ]
+    });
+
+    //监听行工具事件
+    table.on('tool(table)', function(obj) {
+        var data = obj.data;
+        if (obj.event === 'del') {
+            layer.confirm('确定删除这条数据？', { icon: 3, title: '提示' }, function(index) {
+                layer.close(index);
+                $.post('{:url("cms/field/delete")}', { 'id': data.id }, function(data) {
+                    if (data.code == 1) {
+                        if (data.url) {
+                            layer.msg(data.msg + ' 页面即将自动跳转~');
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                        setTimeout(function() {
+                            if (data.url) {
+                                location.href = data.url;
+                            } else {
+                                location.reload();
+                            }
+                        }, 1500);
+                    } else {
+                        layer.msg(data.msg);
+                        setTimeout(function() {
+                            if (data.url) {
+                                location.href = data.url;
+                            }
+                        }, 1500);
+                    }
+
+                });
+            });
+        }else if (obj.event === 'edit') {
+            window.open('{:url("cms/field/edit")}' + "?fieldid=" + data.id + '&modelid={$modelid}', '_self')
+        }
+    });
+
+        //监听单元格编辑
+    table.on('edit(table)', function(obj) {
+        var value = obj.value,
+            data = obj.data;
+        $.post('{:url("cms/field/listorder")}', { 'id': data.id, 'value': value }, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            } else {
+                layer.msg(data.msg);
+            }
+
+        })
+    });
+
+    //监听状态操作
+    form.on('switch(status)', function(obj) {
+        var _this = $(obj.elem);
+        $.post('{:url("cms/field/setstate")}', { 'id': this.value,'status':obj.elem.checked}, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                !obj.elem.checked ? _this.prop('checked',true) : _this.removeAttr('checked');
+                form.render('checkbox');
+                layer.msg(data.msg);
+            }
+
+        });
+    });
+
+    form.on('switch(ifsearch)', function(obj) {
+        var _this = $(obj.elem);
+        $.post('{:url("cms/field/setSearch")}', { 'id': this.value,'ifsearch':obj.elem.checked}, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                !obj.elem.checked ? _this.prop('checked',true) : _this.removeAttr('checked');
+                form.render('checkbox');
+                layer.msg(data.msg);
+            }
+
+        });
+    });
+
+    form.on('switch(ifrequire)', function(obj) {
+        var _this = $(obj.elem);
+        $.post('{:url("cms/field/setRequire")}', { 'id': this.value,'ifrequire':obj.elem.checked}, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                !obj.elem.checked ? _this.prop('checked',true) : _this.removeAttr('checked');
+                form.render('checkbox');
+                layer.msg(data.msg);
+            }
+
+        });
+    });
+
+    form.on('switch(ifeditable)', function(obj) {
+        var _this = $(obj.elem);
+        $.post('{:url("cms/field/setVisible")}', { 'id': this.value,'ifvisible':obj.elem.checked}, function(data) {
+            if (data.code == 1) {
+                layer.msg(data.msg);
+            }else{
+                !obj.elem.checked ? _this.prop('checked',true) : _this.removeAttr('checked');
+                form.render('checkbox');
+                layer.msg(data.msg);
+            }
+
+        });
+    });
+});
+</script>
+{/block}

@@ -1,0 +1,4 @@
+<?php
+//000000003600
+ exit();?>
+think_serialize:a:15:{s:2:"id";i:14;s:7:"catname";s:12:"备案知识";s:6:"catdir";s:6:"record";s:4:"type";i:2;s:7:"modelid";i:1;s:8:"parentid";i:6;s:11:"arrparentid";s:3:"0,6";s:10:"arrchildid";s:2:"14";s:5:"child";i:0;s:5:"image";s:0:"";s:11:"description";s:0:"";s:3:"url";s:58:"http://localhost/YZNCMS/public/index.php/cms/lists/14.html";s:7:"setting";a:7:{s:10:"meta_title";s:0:"";s:13:"meta_keywords";s:0:"";s:16:"meta_description";s:0:"";s:17:"category_template";s:13:"category.html";s:13:"list_template";s:9:"list.html";s:13:"show_template";s:9:"show.html";s:13:"page_template";s:9:"page.html";}s:9:"listorder";i:3;s:6:"status";i:1;}
