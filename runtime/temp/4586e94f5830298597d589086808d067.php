@@ -1,17 +1,43 @@
-{extend name="index_layout"/}
-{block name="main"}
+<?php /*a:2:{s:56:"C:\PHP\WWW\YZNCMS\application\admin\view\config\add.html";i:1554984621;s:58:"C:\PHP\WWW\YZNCMS\application\admin\view\index_layout.html";i:1554268222;}*/ ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>YZNCMS后台管理系统</title>
+    <meta name="author" content="YZNCMS">
+    <link rel="stylesheet" href="/YZNCMS/public/static/libs/layui/css/layui.css">
+    <link rel="stylesheet" href="/YZNCMS/public/static/admin/css/admin.css">
+    <link rel="stylesheet" href="/YZNCMS/public/static/admin/font/iconfont.css">
+    <script src="/YZNCMS/public/static/libs/layui/layui.js"></script>
+    <script src="/YZNCMS/public/static/libs/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+//全局变量
+var GV = {
+    'image_upload_url': '<?php echo !empty($image_upload_url) ? htmlentities($image_upload_url) :  url("attachment/attachments/upload", ["dir" => "images", "module" => request()->module()]); ?>',
+    'file_upload_url': '<?php echo !empty($file_upload_url) ? htmlentities($file_upload_url) :  url("attachment/attachments/upload", ["dir" => "files", "module" => request()->module()]); ?>',
+    'WebUploader_swf': '/YZNCMS/public/static/webuploader/Uploader.swf',
+    'upload_check_url': '<?php echo !empty($upload_check_url) ? htmlentities($upload_check_url) :  url("attachment/Attachments/check"); ?>',
+    'ueditor_upload_url': '<?php echo !empty($ueditor_upload_url) ? htmlentities($ueditor_upload_url) :  url("attachment/Ueditor/run"); ?>',
+    'ueditor_grabimg_url': '<?php echo !empty($ueditor_upload_url) ? htmlentities($ueditor_upload_url) :  url("attachment/Attachments/geturlfile"); ?>',
+};
+</script>
+</head>
+<body class="childrenBody">
+    
 <div class="layui-card">
     <div class="layui-card-header">添加配置</div>
     <div class="layui-card-body">
-        <form class="layui-form form-horizontal" action="{:url('admin/config/add')}" method="post">
+        <form class="layui-form form-horizontal" action="<?php echo url('admin/config/add'); ?>" method="post">
             <div class="layui-form-item">
                 <label class="layui-form-label">分组</label>
                 <div class="layui-input-inline w300">
                     <select name="group">
                         <option value=""></option>
-                        {volist name="groupArray" id="vo"}
-                        <option value="{$key}">{$vo}[{$key}]</option>
-                        {/volist}
+                        <?php if(is_array($groupArray) || $groupArray instanceof \think\Collection || $groupArray instanceof \think\Paginator): $i = 0; $__LIST__ = $groupArray;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo htmlentities($key); ?>"><?php echo htmlentities($vo); ?>[<?php echo htmlentities($key); ?>]</option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                 </div>
             </div>
@@ -20,9 +46,9 @@
                 <div class="layui-input-inline w300">
                     <select name="type" lay-filter="type">
                         <option value=""></option>
-                        {volist name="fieldType" id="vo"}
-                        <option value="{$vo.name}" data-ifoption="{$vo.ifoption}">{$vo.title}[{$vo.name}]</option>
-                        {/volist}
+                        <?php if(is_array($fieldType) || $fieldType instanceof \think\Collection || $fieldType instanceof \think\Paginator): $i = 0; $__LIST__ = $fieldType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo htmlentities($vo['name']); ?>" data-ifoption="<?php echo htmlentities($vo['ifoption']); ?>"><?php echo htmlentities($vo['title']); ?>[<?php echo htmlentities($vo['name']); ?>]</option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                 </div>
             </div>
@@ -76,15 +102,15 @@
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn ajax-post" lay-submit="" lay-filter="*" target-form="form-horizontal">立即提交</button>
-                    <a class="layui-btn layui-btn-normal" href="{:url('admin/config/index')}">返回</a>
+                    <a class="layui-btn layui-btn-normal" href="<?php echo url('admin/config/index'); ?>">返回</a>
                 </div>
             </div>
         </form>
     </div>
 </div>
-{/block}
-{block name="script"}
-<script type="text/javascript" src="__STATIC__/admin/js/common.js"></script>
+
+    
+<script type="text/javascript" src="/YZNCMS/public/static/admin/js/common.js"></script>
 <script>
 /*layui.use(['element', 'form', ], function() {
     var form = layui.form,
@@ -101,4 +127,7 @@
 
 });*/
 </script>
-{/block}
+
+</body>
+
+</html>
