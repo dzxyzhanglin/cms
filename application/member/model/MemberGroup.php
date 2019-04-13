@@ -22,7 +22,7 @@ use \think\Model;
 class MemberGroup extends Model
 {
     //生成会员组缓存
-    public function membergroupCache()
+    public function membergroup_cache()
     {
         $data = $this->select();
         if ($data) {
@@ -46,7 +46,7 @@ class MemberGroup extends Model
     public function addMemberGroup($data) {
         if (false !== $this->save($data)) {
             // 缓存会员组数据
-            $this->membergroupCache();
+            $this->membergroup_cache();
             return true;
         } else {
             $this->error = $this->getError() ?: '会员组添加失败！';
@@ -63,7 +63,7 @@ class MemberGroup extends Model
 
         if (false !== $this->update($data, [], $fields)) {
             // 缓存会员组数据
-            $this->membergroupCache();
+            $this->membergroup_cache();
             return true;
         } else {
             $this->error = $this->getError() ?: '会员组修改失败！';
@@ -85,7 +85,7 @@ class MemberGroup extends Model
 
         if (false !== $this->whereColumn('id', $id)->delete()) {
             // 缓存会员组数据
-            $this->membergroupCache();
+            $this->membergroup_cache();
             return true;
         } else {
             $this->error = '该会员组删除失败';

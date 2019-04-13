@@ -17,12 +17,7 @@ composer.phar
 **/*.iml
 /.idea/
 **/target/
-/logs/
-/**/logs/
-
-/**/target/
-**/.settings
-**/.classpath
-**/.project
-
+/log/
+/**/log/
+/**/temp/ 
 

@@ -11,7 +11,7 @@
         <div class="w1200">
             <div class="search_box">
                 <div class="search radius6">
-                    <form method="get" name="search" action="{:url('cms/index/search')}">
+                    <form method="get" name="search" action="{:url('index/index/search')}">
                         <div class="select_box">
                             <div class="select_showbox" style="cursor: pointer;">搜索全部</div>
                             <ul class="select_option">
@@ -36,16 +36,16 @@
                 <div class="search_list">
                     <h5>按时间搜索</h5>
                     <div class="list-group">
-                        <a href="{:url('cms/index/search?keyword='.$keyword,['time'=>'','modelid'=>$modelid])}" class="list-group-item_gr {empty name="time"}active{/empty}">全部时间</a>
-                        <a href="{:url('cms/index/search?keyword='.$keyword,['time'=>'day','modelid'=>$modelid])}" class="list-group-item_gr {eq name="time" value="day"}active{/eq}">一天内</a>
-                        <a href="{:url('cms/index/search?keyword='.$keyword,['time'=>'week','modelid'=>$modelid])}" class="list-group-item_gr {eq name="time" value="week"}active{/eq}">一周内</a>
-                        <a href="{:url('cms/index/search?keyword='.$keyword,['time'=>'month','modelid'=>$modelid])}" class="list-group-item_gr {eq name="time" value="month"}active{/eq}">一月内</a>
-                        <a href="{:url('cms/index/search?keyword='.$keyword,['time'=>'year','modelid'=>$modelid])}" class="list-group-item_gr {eq name="time" value="year"}active{/eq}">一年内</a>
+                        <a href="{:url('index/index/search?keyword='.$keyword,['time'=>'','modelid'=>$modelid])}" class="list-group-item_gr {empty name="time"}active{/empty}">全部时间</a>
+                        <a href="{:url('index/index/search?keyword='.$keyword,['time'=>'day','modelid'=>$modelid])}" class="list-group-item_gr {eq name="time" value="day"}active{/eq}">一天内</a>
+                        <a href="{:url('index/index/search?keyword='.$keyword,['time'=>'week','modelid'=>$modelid])}" class="list-group-item_gr {eq name="time" value="week"}active{/eq}">一周内</a>
+                        <a href="{:url('index/index/search?keyword='.$keyword,['time'=>'month','modelid'=>$modelid])}" class="list-group-item_gr {eq name="time" value="month"}active{/eq}">一月内</a>
+                        <a href="{:url('index/index/search?keyword='.$keyword,['time'=>'year','modelid'=>$modelid])}" class="list-group-item_gr {eq name="time" value="year"}active{/eq}">一年内</a>
                     </div>
                     <h5>搜索历史</h5>
                     <div class="list-group">
                         {volist name="shistory" id="vo"}
-                        <a href="{:url('cms/index/search',['keyword'=>$vo])}" class="list-group-item_gr" title="{$vo}">{$vo}</a>
+                        <a href="{:url('index/index/search',['keyword'=>$vo])}" class="list-group-item_gr" title="{$vo}">{$vo}</a>
                         {/volist}
                     </div>
                 </div>

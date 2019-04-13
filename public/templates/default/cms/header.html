@@ -25,7 +25,7 @@
             		<div class="search-box fr">
             			<span class="butn hov"><i></i></span>
 						<div class="share-sub" style="width: 0px;">
-						    <form name="formsearch" action="{:url('cms/index/search')}">
+						    <form name="formsearch" action="{:url('index/index/search')}">
 						        <input class="fl tex" type="text" name="keyword" value="请输入关键字" onfocus="if(this.value==defaultValue)this.value=''" onblur="if(this.value=='')this.value=defaultValue">
 						        <input type="submit" value="" class="fl sub-btn ico">
 						    </form>
@@ -36,15 +36,15 @@
                 <!--S 导航-->
                 <div class="nav fr">
                     <ul class="navlist">
-                        <li {if !isset($catid)}class="hover"{/if}><a href="{:url('cms/index/index')}" title="首页">首页</a></li>
-                        {yzn module="cms" action="category" catid="0" cache="3600" order="listorder ASC" num="10" return="data"}
+                        <li {if !isset($catid)}class="hover"{/if}><a href="{:url('index/index/index')}" title="首页">首页</a></li>
+                        {yzn module="index" action="category" catid="0" cache="3600" order="listorder ASC" num="10" return="data"}
                         {volist name="data" id="vo"}
                         <li {if isset($catid) && in_array($catid,explode(',',$vo['arrchildid']))}class='hover'{/if}>
                             <a href="{$vo.url}" title="{$vo.catname}">{$vo.catname}</a>
                             <!--判断是否有子栏目-->
                             {eq name="vo.child" value="1"}
                             <div class="subnav">
-                                {yzn module="cms" action="category" catid="$vo['id']" cache="3600" order="listorder ASC" num="10" return="data"}
+                                {yzn module="index" action="category" catid="$vo['id']" cache="3600" order="listorder ASC" num="10" return="data"}
                                 {foreach $data as $key=>$vo }
                                 <a href="{$vo.url}" title="{$vo.catname}">{$vo.catname}</a>
                                 {/foreach}

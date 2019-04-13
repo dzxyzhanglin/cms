@@ -1,0 +1,37 @@
+{extend name="index_layout"/}
+{block name="main"}
+<div class="layui-card">
+    <div class="layui-card-header">修改密码</div>
+    <div class="layui-card-body">
+        <form class="layui-form form-horizontal" action="{:url('admin/index/updatePwd')}" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">旧密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password_old" lay-verify="password" autocomplete="off" placeholder="旧密码" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" lay-verify="password" autocomplete="off" placeholder="密码" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">确认密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password_confirm" lay-verify="password_confirm" autocomplete="off" placeholder="确认密码" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">请再次输入您的密码</div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn ajax-post" lay-submit="" lay-filter="*" target-form="form-horizontal">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}
+{block name="script" }
+<script type="text/javascript" src="__STATIC__/admin/js/common.js"></script>
+{/block}

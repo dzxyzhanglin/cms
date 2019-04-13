@@ -1,4 +1,4 @@
-<?php /*a:2:{s:56:"C:\PHP\WWW\YZNCMS\application\admin\view\main\index.html";i:1554725140;s:58:"C:\PHP\WWW\YZNCMS\application\admin\view\index_layout.html";i:1554268222;}*/ ?>
+<?php /*a:2:{s:56:"C:\PHP\WWW\YZNCMS\application\admin\view\main\index.html";i:1555123880;s:58:"C:\PHP\WWW\YZNCMS\application\admin\view\index_layout.html";i:1554268222;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -44,7 +44,7 @@ var GV = {
                     <tbody>
                         <tr>
                             <td>当前版本</td>
-                            <td class="version">yzncms v<?php echo htmlentities(app('config')->get('version.yzncms_version')); ?></td>
+                            <td class="version"><?php echo htmlentities(app('config')->get('version.yzncms_name')); ?> v<?php echo htmlentities(app('config')->get('version.yzncms_version')); ?></td>
                         </tr>
                         <tr>
                             <td>PHP 版本</td>
@@ -101,7 +101,7 @@ function getLangDate() {
     var second = dateObj.getSeconds(); //当前系统时间的秒钟值
     var timeValue = "" + ((hour >= 12) ? (hour >= 18) ? "晚上" : "下午" : "上午"); //当前时间属于上午、晚上还是下午
     newDate = dateFilter(year) + "年" + dateFilter(month) + "月" + dateFilter(date) + "日 " + " " + dateFilter(hour) + ":" + dateFilter(minute) + ":" + dateFilter(second);
-    document.getElementById("nowTime").innerHTML = "亲爱的<?php echo htmlentities($userInfo['username']); ?>，" + timeValue + "好！ 欢迎使用YznCMS v<?php echo htmlentities(app('config')->get('version.yzncms_version')); ?>,当前时间为： " + newDate + "　" + week;
+    document.getElementById("nowTime").innerHTML = "亲爱的<?php echo htmlentities($userInfo['username']); ?>，" + timeValue + "好！ 欢迎使用<?php echo htmlentities(app('config')->get('version.yzncms_name')); ?> v<?php echo htmlentities(app('config')->get('version.yzncms_version')); ?>,当前时间为： " + newDate + "　" + week;
     setTimeout("getLangDate()", 1000);
 }
 

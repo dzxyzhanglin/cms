@@ -1,11 +1,11 @@
-<?php /*a:2:{s:57:"C:\PHP\WWW\YZNCMS\application\admin\view\index\index.html";i:1554268222;s:52:"C:\PHP\WWW\YZNCMS\application\admin\view\layout.html";i:1554724700;}*/ ?>
+<?php /*a:2:{s:57:"C:\PHP\WWW\YZNCMS\application\admin\view\index\index.html";i:1554268222;s:52:"C:\PHP\WWW\YZNCMS\application\admin\view\layout.html";i:1555124179;}*/ ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>YZNCMS后台管理系统</title>
+    <title><?php echo htmlentities($config['web_site_name']); ?></title>
     <meta name="author" content="YZNCMS">
     <link rel="stylesheet" href="/YZNCMS/public/static/libs/layui/css/layui.css">
     <link rel="stylesheet" href="/YZNCMS/public/static/admin/css/global.css">
@@ -15,19 +15,8 @@
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
         <div class="layui-header">
-            <a href="#" class="logo">YznCMS后台</a>
+            <a href="#" class="logo"><?php echo htmlentities($config['web_site_name']); ?></a>
             <a href="javascript:;" class="hideMenu icon iconfont icon-other"></a>
-            <!--<ul class="layui-nav mobileTopLevelMenus">
-                <li class="layui-nav-item">
-                    <a href="javascript:;">导航分类<span class="layui-nav-more"></span></a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">内容管理</a></dd>
-                        <dd><a href="javascript:;">用户中心</a></dd>
-                        <dd><a href="javascript:;">系统设置</a></dd>
-                        <dd><a href="javascript:;">使用文档</a></dd>
-                    </dl>
-                </li>
-            </ul>-->
             <ul class="layui-nav topLevelMenus" id="J_B_main_block">
                 <!--AJAX数据-->
             </ul>
@@ -42,6 +31,7 @@
                 </li>
                 <li class="layui-nav-item"><a href="javascript:;"><img src="/YZNCMS/public/static/admin/img/avatar.png" class="layui-nav-img userAvatar" width="35" height="35"><?php echo htmlentities($userInfo['username']); ?></a>
                     <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" id="updatePwd">修改密码</a></dd>
                         <dd><a href="<?php echo url('admin/index/logout'); ?>">安全退出</a></dd>
                     </dl>
                 </li>
@@ -87,7 +77,7 @@
             </div>
         </div>
         <div class="layui-footer">
-            © YznCMS v<?php echo htmlentities(app('config')->get('version.yzncms_version')); ?>
+            © <?php echo htmlentities(app('config')->get('version.yzncms_name')); ?> v<?php echo htmlentities(app('config')->get('version.yzncms_version')); ?>
         </div>
     </div>
     <script src="/YZNCMS/public/static/libs/layui/layui.js"></script>
@@ -485,7 +475,15 @@
             });
         });
 
-
+        // 修改密码
+        $(document).on('click', '#updatePwd', function() {
+            var $this = $(this);
+            iframeJudge({
+                elem: $this,
+                href: "<?php echo url('admin/index/updatePwd'); ?>",
+                id: 'updatePwd'
+            })
+        });
     })
     </script>
 </body>

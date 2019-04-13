@@ -2813,3 +2813,1479 @@ upload:上传'  WHERE  `name` = 'config_group' [ RunTime:0.003390s ]
 [ sql ] [ SQL ] SELECT * FROM `yzn_admin` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.002899s ]
 [ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_model` [ RunTime:0.040118s ]
 [ sql ] [ SQL ] SELECT * FROM `yzn_model` WHERE  `module` = 'cms' [ RunTime:0.003902s ]
+---------------------------------------------------------------
+[2019-04-11T20:18:39+08:00] ::1 GET localhost/YZNCMS/public/index.php/admin/menu/index.html
+[运行时间：0.139358s] [吞吐率：7.18req/s] [内存消耗：3,639.05kb] [文件加载：88]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'purpose' => 'prefetch',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\application\admin\view\menu\index.html [ array (
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013350s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_admin` [ RunTime:0.053047s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_admin` WHERE  `userid` = 1 LIMIT 1 [ RunTime:0.002498s ]
+---------------------------------------------------------------
+[2019-04-11T21:04:01+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/19.html
+[运行时间：0.391494s] [吞吐率：2.55req/s] [内存消耗：4,170.41kb] [文件加载：98]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '19',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '19',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_guestbook.html [ array (
+  0 => 'cms_config',
+  1 => 'fieldList',
+  2 => 'top_parentid',
+  3 => 'SEO',
+  4 => 'catid',
+  5 => 'page',
+  6 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004723s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_model_field` [ RunTime:0.044343s ]
+[ sql ] [ SQL ] SELECT `name`,`title`,`remark`,`type`,`ifsystem`,`ifeditable`,`ifrequire`,`setting` FROM `yzn_model_field` WHERE  `modelid` = 5  AND `status` = 1 ORDER BY `listorder` ASC,`id` ASC [ RunTime:0.004385s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.041191s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 0 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.005092s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.038260s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002760s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001942s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002759s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002139s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001850s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 1 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.003346s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002210s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002074s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002080s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 6 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.003098s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003255s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003350s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002723s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 8 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.003112s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002474s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002996s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 8 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.003438s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003117s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002055s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( id in(1,6,8) AND parentid = 0 ) ORDER BY `listorder` ASC LIMIT 4 [ RunTime:0.003674s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002120s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002033s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003068s ]
+---------------------------------------------------------------
+[2019-04-11T21:04:01+08:00] ::1 GET localhost/YZNCMS/public/index.php/api/checkcode/getverify/font_size/18/imageW/130/imageH/38.html
+[运行时间：0.135780s] [吞吐率：7.36req/s] [内存消耗：2,100.79kb] [文件加载：70]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/19.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'font_size' => '18',
+  'imageW' => '130',
+  'imageH' => '38',
+)
+---------------------------------------------------------------
+[2019-04-11T21:04:37+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/2.html
+[运行时间：0.243736s] [吞吐率：4.10req/s] [内存消耗：4,163.01kb] [文件加载：97]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/19.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\page.html [ array (
+  0 => 'cms_config',
+  1 => 'catid',
+  2 => 'title',
+  3 => 'keywords',
+  4 => 'description',
+  5 => 'content',
+  6 => 'inputtime',
+  7 => 'updatetime',
+  8 => 'top_parentid',
+  9 => 'SEO',
+  10 => 'page',
+  11 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014739s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_page` [ RunTime:0.035155s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_page` WHERE  `catid` = 2 LIMIT 1 [ RunTime:0.002617s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.036154s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 1 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.001905s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.035253s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001696s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003081s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001956s ]
+---------------------------------------------------------------
+[2019-04-11T21:04:47+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/3.html
+[运行时间：0.172560s] [吞吐率：5.80req/s] [内存消耗：3,847.14kb] [文件加载：91]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '3',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/2.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\page.html [ array (
+  0 => 'cms_config',
+  1 => 'catid',
+  2 => 'title',
+  3 => 'keywords',
+  4 => 'description',
+  5 => 'content',
+  6 => 'inputtime',
+  7 => 'updatetime',
+  8 => 'top_parentid',
+  9 => 'SEO',
+  10 => 'page',
+  11 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003149s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_page` [ RunTime:0.043113s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_page` WHERE  `catid` = 3 LIMIT 1 [ RunTime:0.003187s ]
+---------------------------------------------------------------
+[2019-04-11T21:04:49+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/4.html
+[运行时间：0.185764s] [吞吐率：5.38req/s] [内存消耗：4,111.87kb] [文件加载：97]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/3.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '4',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007350s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_picture` [ RunTime:0.051105s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_picture` WHERE  ( status=1 AND catid = 4 ) LIMIT 1 [ RunTime:0.003660s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_picture` WHERE  ( status=1 AND catid = 4 ) ORDER BY `listorder` ASC LIMIT 0,10 [ RunTime:0.003941s ]
+---------------------------------------------------------------
+[2019-04-11T21:22:51+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/4.html
+[运行时间：0.413332s] [吞吐率：2.42req/s] [内存消耗：3,969.16kb] [文件加载：93]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/3.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015364s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.078436s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.006929s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.078348s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.006213s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016692s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.008919s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.010046s ]
+---------------------------------------------------------------
+[2019-04-11T21:22:54+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/4.html
+[运行时间：0.086924s] [吞吐率：11.50req/s] [内存消耗：2,908.32kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/3.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '4',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T21:23:02+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/4.html
+[运行时间：0.096303s] [吞吐率：10.38req/s] [内存消耗：2,908.32kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/3.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '4',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T21:23:05+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/4.html
+[运行时间：0.076354s] [吞吐率：13.10req/s] [内存消耗：2,908.32kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/3.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '4',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T21:23:05+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/4.html
+[运行时间：0.072741s] [吞吐率：13.75req/s] [内存消耗：2,908.32kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/3.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '4',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T22:06:05+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/2.html
+[运行时间：0.464975s] [吞吐率：2.15req/s] [内存消耗：3,983.06kb] [文件加载：94]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\page.html [ array (
+  0 => 'cms_config',
+  1 => 'catid',
+  2 => 'title',
+  3 => 'keywords',
+  4 => 'description',
+  5 => 'content',
+  6 => 'inputtime',
+  7 => 'updatetime',
+  8 => 'top_parentid',
+  9 => 'SEO',
+  10 => 'page',
+  11 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004237s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.049339s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.002989s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.049365s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003168s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_page` [ RunTime:0.047644s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_page` WHERE  `catid` = 2 LIMIT 1 [ RunTime:0.003538s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 0 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.003068s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002285s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002586s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003374s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002799s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001948s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 1 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.005281s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002557s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002249s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002297s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 6 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.003640s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002429s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002275s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001729s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 8 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.003909s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002285s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002638s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 1 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.002971s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002847s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002455s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003131s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( id in(1,6,8) AND parentid = 0 ) ORDER BY `listorder` ASC LIMIT 4 [ RunTime:0.003203s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002224s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002087s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001781s ]
+---------------------------------------------------------------
+[2019-04-11T22:06:07+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/2.html
+[运行时间：0.094018s] [吞吐率：10.64req/s] [内存消耗：3,819.41kb] [文件加载：91]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/2.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\page.html [ array (
+  0 => 'cms_config',
+  1 => 'catid',
+  2 => 'title',
+  3 => 'keywords',
+  4 => 'description',
+  5 => 'content',
+  6 => 'inputtime',
+  7 => 'updatetime',
+  8 => 'top_parentid',
+  9 => 'SEO',
+  10 => 'page',
+  11 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T22:06:10+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/4.html
+[运行时间：0.169065s] [吞吐率：5.91req/s] [内存消耗：3,917.49kb] [文件加载：94]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/2.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '4',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003336s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_picture` [ RunTime:0.054927s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_picture` WHERE  ( status=1 AND catid = 4 ) LIMIT 1 [ RunTime:0.003735s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_picture` WHERE  ( status=1 AND catid = 4 ) ORDER BY `listorder` ASC LIMIT 0,10 [ RunTime:0.004371s ]
+---------------------------------------------------------------
+[2019-04-11T22:06:56+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/2.html
+[运行时间：0.182332s] [吞吐率：5.48req/s] [内存消耗：3,847.87kb] [文件加载：91]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\page.html [ array (
+  0 => 'cms_config',
+  1 => 'catid',
+  2 => 'title',
+  3 => 'keywords',
+  4 => 'description',
+  5 => 'content',
+  6 => 'inputtime',
+  7 => 'updatetime',
+  8 => 'top_parentid',
+  9 => 'SEO',
+  10 => 'page',
+  11 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013697s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_page` [ RunTime:0.052160s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_page` WHERE  `catid` = 2 LIMIT 1 [ RunTime:0.005378s ]
+---------------------------------------------------------------
+[2019-04-11T22:07:07+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/5.html
+[运行时间：0.435302s] [吞吐率：2.30req/s] [内存消耗：4,228.80kb] [文件加载：98]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '5',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/2.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_case.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007288s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.070356s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.007104s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.073969s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.005637s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_product` [ RunTime:0.045131s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_product` WHERE  ( `status` = '1' AND catid = 5 ) LIMIT 1 [ RunTime:0.003591s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_product` WHERE  ( `status` = '1' AND catid = 5 ) ORDER BY `listorder` ASC LIMIT 0,8 [ RunTime:0.003217s ]
+---------------------------------------------------------------
+[2019-04-11T22:07:11+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/6.html
+[运行时间：0.279502s] [吞吐率：3.58req/s] [内存消耗：4,201.40kb] [文件加载：98]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '6',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '6',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\category.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004551s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.041259s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.004602s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.042889s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003544s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_article` [ RunTime:0.041847s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_article` WHERE  ( status=1 AND catid in(9,10,14) ) LIMIT 1 [ RunTime:0.003080s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_article` WHERE  ( status=1 AND catid in(9,10,14) ) ORDER BY `listorder` ASC LIMIT 0,4 [ RunTime:0.004213s ]
+---------------------------------------------------------------
+[2019-04-11T22:07:18+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/6.html?page=2
+[运行时间：0.191426s] [吞吐率：5.22req/s] [内存消耗：3,917.68kb] [文件加载：94]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '6',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/6.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+  'catid' => '6',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\category.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013178s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_article` [ RunTime:0.053927s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_article` WHERE  ( status=1 AND catid in(9,10,14) ) LIMIT 1 [ RunTime:0.002740s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_article` WHERE  ( status=1 AND catid in(9,10,14) ) ORDER BY `listorder` ASC LIMIT 4,4 [ RunTime:0.002977s ]
+---------------------------------------------------------------
+[2019-04-11T22:07:19+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/6.html?page=1
+[运行时间：0.062760s] [吞吐率：15.93req/s] [内存消耗：2,908.83kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '6',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/6.html?page=2',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'catid' => '6',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\category.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T22:07:21+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/9.html
+[运行时间：0.434384s] [吞吐率：2.30req/s] [内存消耗：4,199.86kb] [文件加载：98]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '9',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/6.html?page=1',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '9',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005941s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.060166s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.009097s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.085640s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.009408s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 6 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.005634s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.004391s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.007497s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.004827s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_article` [ RunTime:0.062602s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_article` WHERE  ( status=1 AND catid = 9 ) LIMIT 1 [ RunTime:0.004933s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_article` WHERE  ( status=1 AND catid = 9 ) ORDER BY `listorder` ASC LIMIT 0,4 [ RunTime:0.005088s ]
+---------------------------------------------------------------
+[2019-04-11T22:07:22+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/10.html
+[运行时间：0.323237s] [吞吐率：3.09req/s] [内存消耗：4,001.98kb] [文件加载：95]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '10',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/9.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '10',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012688s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.043271s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.007359s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.045222s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002985s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_article` [ RunTime:0.063031s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_article` WHERE  ( status=1 AND catid = 10 ) LIMIT 1 [ RunTime:0.004586s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_article` WHERE  ( status=1 AND catid = 10 ) ORDER BY `listorder` ASC LIMIT 0,4 [ RunTime:0.003347s ]
+---------------------------------------------------------------
+[2019-04-11T22:07:23+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/14.html
+[运行时间：0.312600s] [吞吐率：3.20req/s] [内存消耗：4,001.25kb] [文件加载：95]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '14',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/10.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '14',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003946s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.042906s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.002468s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.052306s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003402s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_article` [ RunTime:0.068015s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_article` WHERE  ( status=1 AND catid = 14 ) LIMIT 1 [ RunTime:0.005815s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_article` WHERE  ( status=1 AND catid = 14 ) ORDER BY `listorder` ASC LIMIT 0,4 [ RunTime:0.006802s ]
+---------------------------------------------------------------
+[2019-04-11T22:07:24+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/10.html
+[运行时间：0.078075s] [吞吐率：12.81req/s] [内存消耗：2,908.12kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '10',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/14.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '10',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T22:07:25+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/9.html
+[运行时间：0.075648s] [吞吐率：13.22req/s] [内存消耗：2,908.15kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '9',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/10.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '9',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T22:07:29+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/2.html
+[运行时间：0.173449s] [吞吐率：5.77req/s] [内存消耗：3,847.87kb] [文件加载：91]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/9.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\page.html [ array (
+  0 => 'cms_config',
+  1 => 'catid',
+  2 => 'title',
+  3 => 'keywords',
+  4 => 'description',
+  5 => 'content',
+  6 => 'inputtime',
+  7 => 'updatetime',
+  8 => 'top_parentid',
+  9 => 'SEO',
+  10 => 'page',
+  11 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005254s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_page` [ RunTime:0.060144s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_page` WHERE  `catid` = 2 LIMIT 1 [ RunTime:0.003758s ]
+---------------------------------------------------------------
+[2019-04-11T22:07:32+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/5.html
+[运行时间：0.080150s] [吞吐率：12.48req/s] [内存消耗：2,924.39kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '5',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/2.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '5',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_case.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T22:07:34+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/6.html
+[运行时间：0.070617s] [吞吐率：14.16req/s] [内存消耗：2,908.62kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '6',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '6',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\category.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T22:07:34+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/5.html
+[运行时间：0.070874s] [吞吐率：14.11req/s] [内存消耗：2,924.39kb] [文件加载：87]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '5',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/6.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '5',
+)
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_case.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T22:07:35+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/2.html
+[运行时间：0.081020s] [吞吐率：12.34req/s] [内存消耗：3,819.41kb] [文件加载：91]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\page.html [ array (
+  0 => 'cms_config',
+  1 => 'catid',
+  2 => 'title',
+  3 => 'keywords',
+  4 => 'description',
+  5 => 'content',
+  6 => 'inputtime',
+  7 => 'updatetime',
+  8 => 'top_parentid',
+  9 => 'SEO',
+  10 => 'page',
+  11 => 'modelid',
+) ]
+---------------------------------------------------------------
+[2019-04-11T23:38:32+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/4.html
+[运行时间：0.507411s] [吞吐率：1.97req/s] [内存消耗：4,035.19kb] [文件加载：95]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/2.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013678s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.041125s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.006615s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.045720s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.004127s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 0 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.004341s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.004789s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.005984s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003119s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003666s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.006530s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 1 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.008012s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003209s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002899s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.005127s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 6 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.004017s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.005052s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003247s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002768s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 8 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.004932s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003097s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003121s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014152s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.003173s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003219s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( status=1 AND parentid = 1 ) ORDER BY `listorder` ASC LIMIT 10 [ RunTime:0.004898s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003086s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002933s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.004315s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_picture` [ RunTime:0.041231s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_picture` WHERE  ( status=1 AND catid = 4 ) LIMIT 1 [ RunTime:0.003798s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_picture` WHERE  ( status=1 AND catid = 4 ) ORDER BY `listorder` ASC LIMIT 0,10 [ RunTime:0.003845s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  ( id in(1,6,8) AND parentid = 0 ) ORDER BY `listorder` ASC LIMIT 4 [ RunTime:0.004902s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003385s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003722s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003324s ]
+---------------------------------------------------------------
+[2019-04-11T23:38:44+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/lists/5.html
+[运行时间：0.208671s] [吞吐率：4.79req/s] [内存消耗：4,025.24kb] [文件加载：95]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/lists/<catid>/<condition?>',
+  'route' => 'cms/index/lists',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '5',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\list_case.html [ array (
+  0 => 'cms_config',
+  1 => 'top_parentid',
+  2 => 'SEO',
+  3 => 'catid',
+  4 => 'page',
+  5 => 'modelid',
+) ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004072s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.028244s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.003121s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.027839s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002793s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_product` [ RunTime:0.029249s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_product` WHERE  ( `status` = '1' AND catid = 5 ) LIMIT 1 [ RunTime:0.003342s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_product` WHERE  ( `status` = '1' AND catid = 5 ) ORDER BY `listorder` ASC LIMIT 0,8 [ RunTime:0.003574s ]
+---------------------------------------------------------------
+[2019-04-11T23:38:47+08:00] ::1 GET localhost/YZNCMS/public/index.php/cms/shows/5/4.html
+[运行时间：0.276005s] [吞吐率：3.62req/s] [内存消耗：4,265.04kb] [文件加载：98]
+[ info ] [ LANG ] C:\PHP\WWW\YZNCMS\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'cms/shows/<catid>/<id>',
+  'route' => 'cms/index/shows',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+    'catid' => '5',
+    'id' => '4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://localhost/YZNCMS/public/index.php/cms/lists/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'ACTIVITI_REMEMBER_ME=NDI4WU1ERk5zZ0dpamVuUGN4eVJLdz09OnNrWWhFYm9uOGRZT1ZMTUNSWWsyMEE9PQ; pgv_pvi=7143303168; PHPSESSID=2crspbcav3cvfqnmgcjghua7n6; __forward__=%2Fzzxh%2Fpublic%2Findex.php%2Fcms%2Ffield%2Findex%2Fid%2F1.html%3Fpage%3D1%26limit%3D10',
+)
+[ info ] [ PARAM ] array (
+  'catid' => '5',
+  'id' => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\PHP\WWW\YZNCMS\public\..\public\templates\default\cms\show_picture.html [ array (
+  0 => 'cms_config',
+  1 => 'id',
+  2 => 'catid',
+  3 => 'title',
+  4 => 'flag',
+  5 => 'keywords',
+  6 => 'description',
+  7 => 'tags',
+  8 => 'listorder',
+  9 => 'uid',
+  10 => 'hits',
+  11 => 'inputtime',
+  12 => 'updatetime',
+  13 => 'status',
+  14 => 'type',
+  15 => 'trade',
+  16 => 'price',
+  17 => 'did',
+  18 => 'content',
+  19 => 'url',
+  20 => 'top_parentid',
+  21 => 'SEO',
+  22 => 'page',
+) ]
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012471s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_product` [ RunTime:0.028493s ]
+[ sql ] [ SQL ] UPDATE `yzn_product`  SET `hits` = `hits` + 1  WHERE  `id` = 4 [ RunTime:0.003067s ]
+[ sql ] [ SQL ] SELECT `product`.*,`product_data`.* FROM `yzn_product` `product` LEFT JOIN `yzn_product_data` `product_data` ON `product`.`id`=`product_data`.`did` WHERE  ( id='4' ) LIMIT 1 [ RunTime:0.003743s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013396s ] mysql:host=127.0.0.1;dbname=yzncms;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_category` [ RunTime:0.027171s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_category` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.004013s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_attachment` [ RunTime:0.027153s ]
+[ sql ] [ SQL ] SELECT `path`,`driver`,`thumb` FROM `yzn_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.003723s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzn_article` [ RunTime:0.027654s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yzn_article` WHERE  ( status=1 AND catid in(9,10,14) ) LIMIT 1 [ RunTime:0.003167s ]
+[ sql ] [ SQL ] SELECT * FROM `yzn_article` WHERE  ( status=1 AND catid in(9,10,14) ) ORDER BY `listorder` ASC LIMIT 0,5 [ RunTime:0.004755s ]

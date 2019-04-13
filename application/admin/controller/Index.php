@@ -17,6 +17,7 @@ namespace app\admin\controller;
 use app\admin\service\User;
 use app\common\controller\Adminbase;
 use think\facade\Cache;
+use think\Db;
 
 class Index extends Adminbase
 {
@@ -25,6 +26,7 @@ class Index extends Adminbase
     {
         $this->assign('userInfo', $this->_userinfo);
         $this->assign("SUBMENU_CONFIG", json_encode(model("admin/Menu")->getMenuList()));
+        $this->assign('config', cache('Config'));
         return $this->fetch();
     }
 
@@ -57,10 +59,50 @@ class Index extends Adminbase
             }
 
         } else {
+            $this->assign('config', cache('Config'));
             return $this->fetch();
         }
-
     }
+
+    /**
+     * 修改密码
+     */
+    public function updatePwd()
+    {
+        if ($this->request->isPost()) {
+            $data = $this->request->post();
+            $rule = [
+                'password_old|旧密码' => 'require',
+                'password|密码' => 'require|confirm'
+            ];
+            $result = $this->validate($data, $rule);
+            if (true !== $result) {
+                $this->error($result);
+            }
+
+            $userInfo = $this->_userinfo;
+            if (encrypt_password($data['password_old'], $userInfo['encrypt'])
+                != $userInfo['password']) {
+                $this->error('旧密码错误');
+            }
+
+            $passwordinfo = encrypt_password($data['password']); //对密码进行处理
+            $arr = [];
+            $arr['encrypt'] = $passwordinfo['encrypt'];
+            $arr['password'] = $passwordinfo['password'];
+
+            $status = Db::name("admin")->where(array('userid'=>$userInfo['userid']))->update($arr);
+
+            if (false !== $status) {
+                $this->success('密码修改成功');
+            } else {
+                $this->error('密码修改失败');
+            }
+        } else {
+            return $this->fetch();
+        }
+    }
+
 
     //手动退出登录
     public function logout()

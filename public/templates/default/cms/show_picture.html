@@ -26,7 +26,7 @@ body {
             	<div class="detaLabels">
                     {notempty name="tags"}
                     {volist name=":explode(',',$tags)" id="vo"}
-            		<a class="labelList" href="{:url('cms/index/tags',['tag'=>$vo])}">{$vo}</a>
+            		<a class="labelList" href="{:url('index/index/tags',['tag'=>$vo])}">{$vo}</a>
                     {/volist}
                     {/notempty}
             	</div>
@@ -37,7 +37,7 @@ body {
             </div>
             <div class="case_ny_right">
             	<h3>热门新闻</h3>
-                {yzn module="cms" action="lists" catid="6" cache="3600" order="listorder ASC" num="5" page="$page" return="data"}
+                {yzn module="index" action="lists" catid="6" cache="3600" order="listorder ASC" num="5" page="$page" return="data"}
                 {volist name="data" id="vo"}
             	<div class="newsBox">
             		<div class="newsBody">
