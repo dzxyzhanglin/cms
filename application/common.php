@@ -588,3 +588,152 @@ function safe_replace($string)
     $string = str_replace('\\', '', $string);
     return $string;
 }
+
+
+/**
+ * 字符截取
+ * @param $string 需要截取的字符串
+ * @param $length 长度
+ * @param $dot
+ */
+function str_cut($sourcestr, $length, $dot = '...')
+{
+    $returnstr = '';
+    $i = 0;
+    $n = 0;
+    $str_length = strlen($sourcestr); //字符串的字节数
+    while (($n < $length) && ($i <= $str_length)) {
+        $temp_str = substr($sourcestr, $i, 1);
+        $ascnum = Ord($temp_str); //得到字符串中第$i位字符的ascii码
+        if ($ascnum >= 224) { //如果ASCII位高与224，
+            $returnstr = $returnstr . substr($sourcestr, $i, 3); //根据UTF-8编码规范，将3个连续的字符计为单个字符
+            $i = $i + 3; //实际Byte计为3
+            $n++; //字串长度计1
+        } elseif ($ascnum >= 192) { //如果ASCII位高与192，
+            $returnstr = $returnstr . substr($sourcestr, $i, 2); //根据UTF-8编码规范，将2个连续的字符计为单个字符
+            $i = $i + 2; //实际Byte计为2
+            $n++; //字串长度计1
+        } elseif ($ascnum >= 65 && $ascnum <= 90) {
+            //如果是大写字母，
+            $returnstr = $returnstr . substr($sourcestr, $i, 1);
+            $i = $i + 1; //实际的Byte数仍计1个
+            $n++; //但考虑整体美观，大写字母计成一个高位字符
+        } else {
+//其他情况下，包括小写字母和半角标点符号，
+            $returnstr = $returnstr . substr($sourcestr, $i, 1);
+            $i = $i + 1; //实际的Byte数计1个
+            $n = $n + 0.5; //小写字母和半角标点等与半个高位字符宽...
+        }
+    }
+    if ($str_length > strlen($returnstr)) {
+        $returnstr = $returnstr . $dot; //超过长度时在尾处加上省略号
+    }
+    return $returnstr;
+}
+
+
+
+/**
+ * 获取模型数据
+ * @param type $modelid 模型ID
+ * @param type $name 返回的字段，默认返回全部，数组
+ * @return boolean
+ */
+function getModel($modelid, $name = '')
+{
+    if (empty($modelid)) {
+        return false;
+    }
+    $key = 'getModel_' . $modelid;
+    $cache = Cache::get($key);
+    if ($cache === 'false') {
+        return false;
+    }
+    if (empty($cache)) {
+        //读取数据
+        $cache = db('Model')->where(array('id' => $modelid))->find();
+        if (empty($cache)) {
+            Cache::set($key, 'false', 60);
+            return false;
+        } else {
+            Cache::set($key, $cache, 3600);
+        }
+    }
+    if ($name) {
+        return $cache[$name];
+    } else {
+        return $cache;
+    }
+}
+
+//创建内容链接
+function buildContentUrl($catid, $id)
+{
+    return url('index/index/shows', ['catid' => $catid, 'id' => $id]);
+}
+
+/**
+ * 获取栏目相关信息
+ * @param type $catid 栏目id
+ * @param type $field 返回的字段，默认返回全部，数组
+ * @param type $newCache 是否强制刷新
+ * @return boolean
+ */
+function getCategory($catid, $field = '', $newCache = false)
+{
+    if (empty($catid)) {
+        return false;
+    }
+    $key = 'getCategory_' . $catid;
+    //强制刷新缓存
+    if ($newCache) {
+        Cache::rm($key, null);
+    }
+    $cache = Cache::get($key);
+    if ($cache === 'false') {
+        return false;
+    }
+    if (empty($cache)) {
+        //读取数据
+        $cache = db('category')->where(['id' => $catid])->find();
+        if (empty($cache)) {
+            Cache::set($key, 'false', 60);
+            return false;
+        } else {
+            //扩展配置
+            $cache['setting'] = unserialize($cache['setting']);
+            $cache['url'] = buildCatUrl($cache['type'], $catid);
+            //栏目扩展字段
+            //$cache['extend'] = $cache['setting']['extend'];
+            $cache['image'] = get_file_path($cache['image']);
+            Cache::set($key, $cache, 3600);
+        }
+    }
+    if ($field) {
+        //支持var.property，不过只支持一维数组
+        if (false !== strpos($field, '.')) {
+            $vars = explode('.', $field);
+            return $cache[$vars[0]][$vars[1]];
+        } else {
+            return $cache[$field];
+        }
+    } else {
+        return $cache;
+    }
+}
+
+/**
+ * 生成栏目URL
+ */
+function buildCatUrl($type, $id, $url = '')
+{
+    switch ($type) {
+        case 3: //自定义链接
+            $url = empty($url) ? '' : ((strpos($url, '://') !== false) ? $url : url($url));
+            break;
+        default:
+            $url = url('index/index/lists', ['catid' => $id]);
+            break;
+    }
+    return $url;
+}

@@ -64,7 +64,7 @@ class IndexTagLib
             $catid = (int) $data['catid'];
             $where .= empty($where) ? "parentid = " . $catid : " AND parentid = " . $catid;
         }
-        $categorys = model('Cms/Category')->where($where)->limit($num)->order($data['order'])->select();
+        $categorys = model('app\cms\model\Category')->where($where)->limit($num)->order($data['order'])->select();
         if (!empty($categorys)) {
             foreach ($categorys as &$vo) {
                 $vo['url'] = buildCatUrl($vo['type'], $vo['id'], $vo['url']);
@@ -98,7 +98,7 @@ class IndexTagLib
         $catInfo = getCategory($data['catid']);
         $result = [];
         if (isset($catInfo['modelid']) && $catInfo['modelid']) {
-            $result = model('Cms/Cms')->getList($catInfo['modelid'], $this->where($data), $moreifo, $data['field'], $data['order'], $data['limit'], $data['page']);
+            $result = model('app\cms\model\Cms')->getList($catInfo['modelid'], $this->where($data), $moreifo, $data['field'], $data['order'], $data['limit'], $data['page']);
         }
         return $result;
     }
@@ -142,7 +142,7 @@ class IndexTagLib
         $return = Db::name('TagsContent')->where($where_str)->limit($data['limit'])->select();
         //读取文章信息
         foreach ($return as $k => $v) {
-            $r = model('Cms/Cms')->getContent($v['modelid'], "id =" . $v['contentid'], false, '*', $data['limit'], $data['page']);
+            $r = model('app\cms\model\Cms')->getContent($v['modelid'], "id =" . $v['contentid'], false, '*', $data['limit'], $data['page']);
             if ($r) {
                 $return[$k] = array_merge($v, $r);
             }
@@ -160,7 +160,7 @@ class IndexTagLib
         $msg = !empty($data['msg']) ? $data['msg'] : '已经没有了';
         //是否新窗口打开
         $target = !empty($data['target']) ? ' target="_blank" ' : ' target="_self" ';
-        $result = model('Cms/Cms')->getContent(getCategory($data['catid'], 'modelid'), "catid =" . $data['catid'] . " AND id <" . $data['id'], false, 'catid,id,title');
+        $result = model('app\cms\model\Cms')->getContent(getCategory($data['catid'], 'modelid'), "catid =" . $data['catid'] . " AND id <" . $data['id'], false, 'catid,id,title');
         if (!$result) {
             $result['title'] = $msg;
             $result['url'] = 'javascript:alert("' . $msg . '");';
@@ -181,7 +181,7 @@ class IndexTagLib
         $msg = !empty($data['msg']) ? $data['msg'] : '已经没有了';
         //是否新窗口打开
         $target = !empty($data['target']) ? ' target=\"_blank\" ' : '';
-        $result = model('Cms/Cms')->getContent(getCategory($data['catid'], 'modelid'), "catid =" . $data['catid'] . " AND id >" . $data['id'], false, 'catid,id,title');
+        $result = model('app\cms\model\Cms')->getContent(getCategory($data['catid'], 'modelid'), "catid =" . $data['catid'] . " AND id >" . $data['id'], false, 'catid,id,title');
         if (!$result) {
             $result['title'] = $msg;
             $result['url'] = 'javascript:alert("' . $msg . '");';
