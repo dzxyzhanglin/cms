@@ -1,0 +1,4 @@
+<?php
+//000000000010
+ exit();?>
+think_serialize:a:7:{s:5:"catid";i:3;s:5:"title";s:12:"企业文化";s:8:"keywords";s:0:"";s:11:"description";s:0:"";s:7:"content";s:1261:"<p>【愿景】</p><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p>不断倾听和满足用户需求，引导并超越用户需求，赢得用户尊敬</p></li><li><p>通过提升品牌形象，使员工具有高度企业荣誉感，赢得员工尊敬&nbsp;</p></li><li><p>推动互联网行业的健康发展，与合作伙伴共成长，赢得行业尊敬</p></li><li><p>注重企业责任，用心服务，关爱社会、回馈社会，赢得社会尊敬</p></li></ul><p><br/></p><p>【使命】</p><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p>使产品和服务像水和电融入人们的生活，为人们带来便捷和愉悦</p></li><li><p>关注不同地域、群体，并针对不同对象提供差异化的产品和服务</p></li><li><p>打造开放共赢平台，与合作伙伴共同营造健康的互联网生态环境</p></li></ul><p><br/></p><p>【管理理念】</p><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p>为员工提供良好的工作环境和激励机制&nbsp;</p></li><li><p>完善员工培养体系和职业发展通道，使员工与企业同步成长</p></li><li><p>充分尊重和信任员工，不断引导和鼓励，使其获得成就的喜悦</p></li></ul>";s:9:"inputtime";i:0;s:10:"updatetime";i:0;}

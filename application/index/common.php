@@ -158,18 +158,43 @@ function seo($catid = '', $title = '', $description = '', $keyword = '')
     if (!empty($keyword)) {
         $keyword = str_replace(' ', ',', strip_tags($keyword));
     }
+
     $site = cache("Config");
     if (!empty($catid)) {
         $cat = getCategory($catid);
     }
-    $seo['site_title'] = $site['web_site_name'];
-    $titleKeywords = "";
 
-    $seo['keyword'] = !empty($keyword) ? $keyword : $site['web_site_keyword'];
+    $seo = [
+        'title' => $site['web_site_name'],
+        'keyword' => $site['web_site_keyword'],
+        'description' => $site['web_site_description']
+    ];
 
-    $seo['description'] = isset($description) && !empty($description) ? $description : (isset($cat['setting']['meta_description']) && !empty($cat['setting']['meta_description']) ? $cat['setting']['meta_description'] : (isset($site['web_site_description']) && !empty($site['web_site_description']) ? $site['web_site_description'] : ''));
+    // 标题
+    if (isset($title) && !empty($title)) {
+        $seo['title'] = $title;
+    } else {
+        if (isset($cat['setting']['meta_title']) && !empty($cat['setting']['meta_title'])) {
+            $seo['title'] = $cat['setting']['meta_title'];
+        }
+    }
+    // 关键词
+    if (isset($keyword) && !empty($keyword)) {
+        $seo['keyword'] = $keyword;
+    } else {
+        if (isset($cat['setting']['meta_keywords']) && !empty($cat['setting']['meta_keywords'])) {
+            $seo['keyword'] = $cat['setting']['meta_keywords'];
+        }
+    }
+    // 描述
+    if (isset($description) && !empty($description)) {
+        $seo['description'] = $description;
+    } else {
+        if (isset($cat['setting']['meta_description']) && !empty($cat['setting']['meta_description'])) {
+            $seo['description'] = $cat['setting']['meta_description'];
+        }
+    }
 
-    $seo['title'] = (isset($title) && !empty($title) ? $title . ' - ' : '') . (isset($cat['setting']['meta_title']) && !empty($cat['setting']['meta_title']) ? $cat['setting']['meta_title'] . ' - ' : (isset($cat['catname']) && !empty($cat['catname']) ? $cat['catname'] . ' - ' : ''));
     foreach ($seo as $k => $v) {
         $seo[$k] = str_replace(array("\n", "\r"), '', $v);
     }
