@@ -74,7 +74,7 @@ class Member extends Adminbase
             if (true !== $result) {
                 return $this->error($result);
             }
-            $status = $this->Member_Model->addMember($data);
+            $status = $this->Member_Model->add($data);
             if (false !== $status) {
                 $this->success("添加会员成功！", url("member/member/index"));
             } else {
@@ -105,8 +105,7 @@ class Member extends Adminbase
                 return $this->error($result);
             }
 
-            $status = $this->Member_Model->editMember($data, ['id','username', 'nickname', 'email', 'groupid', 'point', 'password_question', 'password_answer',
-                'birthday', 'sex', 'major', 'workplace', 'post', 'special_committee']);
+            $status = $this->Member_Model->edit($data);
             if ($status) {
                 $this->success("修改成功！", url("member/member/index"));
             } else {

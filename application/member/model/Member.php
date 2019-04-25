@@ -39,7 +39,7 @@ class Member extends Model
      * @param string $mobile    手机号
      * @param array $extend    扩展参数
      */
-    public function addMember($data)
+    public function add($data)
     {
         $passwordinfo = encrypt_password($data['password']); //对密码进行处理
         $data['password'] = $passwordinfo['password'];
@@ -54,7 +54,7 @@ class Member extends Model
         }
     }
 
-    public function editMember($data, $fields)
+    public function edit($data)
     {
         if (empty($data)) {
             $this->error = '编辑会员数据不能为空！';
@@ -80,7 +80,7 @@ class Member extends Model
             $data['encrypt'] = $passwordinfo['encrypt'];
         }
 
-        if (false !== $this->update($data, [], $fields)) {
+        if (false !== $this->update($data, [])) {
             return true;
         } else {
             $this->error = '会员修改失败！';

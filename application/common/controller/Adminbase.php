@@ -29,6 +29,11 @@ class Adminbase extends Base
             'admin/index/login',
             'admin/index/logout',
         ];
+        // 过滤不需要验证权限的行为
+        $ignoreUrl = [
+            'admin/index/index',
+            'admin/main/index'
+        ];
 
         $rule = strtolower($this->request->module() . '/' . $this->request->controller() . '/' . $this->request->action());
 
@@ -44,7 +49,7 @@ class Adminbase extends Base
                 //是否超级管理员
                 if (!User::instance()->isAdministrator()) {
                     //检测访问权限
-                    if (!$this->checkRule($rule, [1, 2])) {
+                    if (!$this->checkRule($rule, $ignoreUrl, [1, 2])) {
                         $this->error('未授权访问!');
                     }
                 }
@@ -100,11 +105,16 @@ class Adminbase extends Base
     /**
      * 权限检测
      * @param string  $rule    检测的规则
+     * @param array   $ignoreUrl 不需要验证的url
      * @param string  $mode    check模式
      * @return boolean
      */
-    final protected function checkRule($rule, $type = AuthRule::RULE_URL, $mode = 'url')
+    final protected function checkRule($rule, $ignoreUrl, $type = AuthRule::RULE_URL, $mode = 'url')
     {
+        if (in_array($rule, $ignoreUrl)) {
+            return true;
+        }
+
         static $Auth = null;
         if (!$Auth) {
             $Auth = new \libs\Auth();
