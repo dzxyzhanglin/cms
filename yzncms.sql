@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-04-21 09:55:58
+Date: 2019-04-25 22:35:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -77,7 +77,7 @@ CREATE TABLE `yzn_adminlog` (
   `ip` bigint(20) unsigned NOT NULL DEFAULT '0',
   `get` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=333 DEFAULT CHARSET=utf8 COMMENT='操作日志';
+) ENGINE=MyISAM AUTO_INCREMENT=335 DEFAULT CHARSET=utf8 COMMENT='操作日志';
 
 -- ----------------------------
 -- Records of yzn_adminlog
@@ -410,6 +410,8 @@ INSERT INTO `yzn_adminlog` VALUES ('329', '1', '1', '提示语:栏目删除成�
 INSERT INTO `yzn_adminlog` VALUES ('330', '1', '1', '提示语:更新缓存成功！', '1555809678', '0', '/YZNCMS/public/index.php/cms/category/public_cache.html');
 INSERT INTO `yzn_adminlog` VALUES ('331', '1', '1', '提示语:清理缓存', '1555809694', '0', '/YZNCMS/public/index.php/admin/index/cache.html?type=all&_=1555807753570');
 INSERT INTO `yzn_adminlog` VALUES ('332', '1', '1', '提示语:清理缓存', '1555811740', '0', '/YZNCMS/public/index.php/admin/index/cache.html?type=all&_=1555807753571');
+INSERT INTO `yzn_adminlog` VALUES ('333', '1', '1', '提示语:修改成功！', '1555814146', '0', '/YZNCMS/public/index.php/cms/category/edit.html');
+INSERT INTO `yzn_adminlog` VALUES ('334', '1', '1', '提示语:修改成功！', '1555814265', '0', '/YZNCMS/public/index.php/cms/category/edit.html');
 
 -- ----------------------------
 -- Table structure for yzn_article
@@ -699,14 +701,14 @@ CREATE TABLE `yzn_category` (
 -- ----------------------------
 -- Records of yzn_category
 -- ----------------------------
-INSERT INTO `yzn_category` VALUES ('2', '公司简介', 'Introduction', '1', '0', '1', '0,1', '2', '0', '0', '', '', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:13:\"category.html\";s:13:\"list_template\";s:9:\"list.html\";s:13:\"show_template\";s:9:\"show.html\";s:13:\"page_template\";s:9:\"page.html\";}', '1', '1');
+INSERT INTO `yzn_category` VALUES ('2', '公司简介', 'Introduction', '1', '0', '1', '0,1', '2', '0', '0', '关于我们', '', 'a:4:{s:10:\"meta_title\";s:12:\"关于我们\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:13:\"page_template\";s:9:\"page.html\";}', '1', '1');
 INSERT INTO `yzn_category` VALUES ('3', '企业文化', 'culture', '1', '0', '1', '0,1', '3', '0', '0', '', '', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:13:\"category.html\";s:13:\"list_template\";s:9:\"list.html\";s:13:\"show_template\";s:9:\"show.html\";s:13:\"page_template\";s:9:\"page.html\";}', '2', '1');
 INSERT INTO `yzn_category` VALUES ('5', '案例展示', 'case', '2', '3', '0', '0', '5', '0', '0', '', '', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:18:\"category_case.html\";s:13:\"list_template\";s:14:\"list_case.html\";s:13:\"show_template\";s:17:\"show_picture.html\";s:13:\"page_template\";s:9:\"page.html\";}', '2', '1');
 INSERT INTO `yzn_category` VALUES ('6', '新闻中心', 'news', '2', '1', '0', '0', '6,9,14', '1', '0', '', '', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:13:\"category.html\";s:13:\"list_template\";s:9:\"list.html\";s:13:\"show_template\";s:9:\"show.html\";s:13:\"page_template\";s:9:\"page.html\";}', '3', '1');
 INSERT INTO `yzn_category` VALUES ('8', '联系我们', 'contact', '3', '0', '0', '0', '8,18,19', '1', '0', '', 'index/index/lists?catid=18', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:13:\"category.html\";s:13:\"list_template\";s:9:\"list.html\";s:13:\"show_template\";s:9:\"show.html\";s:13:\"page_template\";s:9:\"page.html\";}', '4', '1');
 INSERT INTO `yzn_category` VALUES ('9', '网络营销', 'marketing', '2', '1', '6', '0,6', '9', '0', '0', '', '', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:13:\"category.html\";s:13:\"list_template\";s:9:\"list.html\";s:13:\"show_template\";s:9:\"show.html\";s:13:\"page_template\";s:9:\"page.html\";}', '1', '1');
 INSERT INTO `yzn_category` VALUES ('14', '备案知识', 'record', '2', '1', '6', '0,6', '14', '0', '0', '', '', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:13:\"category.html\";s:13:\"list_template\";s:9:\"list.html\";s:13:\"show_template\";s:9:\"show.html\";s:13:\"page_template\";s:9:\"page.html\";}', '3', '1');
-INSERT INTO `yzn_category` VALUES ('1', '关于我们', 'about', '3', '0', '0', '0', '1,2,3', '1', '0', '11', 'index/index/lists?catid=2', 'N;', '1', '1');
+INSERT INTO `yzn_category` VALUES ('1', '关于我们', 'about', '3', '0', '0', '0', '1,2,3', '1', '0', '11', 'index/index/lists?catid=2', 'a:3:{s:10:\"meta_title\";s:32:\"关于我们 - ZLCMS管理系统\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";}', '1', '1');
 INSERT INTO `yzn_category` VALUES ('18', '联系方式', 'fangshi', '1', '0', '8', '0,8', '18', '0', '0', '', '', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:13:\"category.html\";s:13:\"list_template\";s:9:\"list.html\";s:13:\"show_template\";s:9:\"show.html\";s:13:\"page_template\";s:9:\"page.html\";}', '100', '1');
 INSERT INTO `yzn_category` VALUES ('19', '在线留言', 'guestbook', '2', '5', '8', '0,8', '19', '0', '0', '', '', 'a:7:{s:10:\"meta_title\";s:0:\"\";s:13:\"meta_keywords\";s:0:\"\";s:16:\"meta_description\";s:0:\"\";s:17:\"category_template\";s:13:\"category.html\";s:13:\"list_template\";s:19:\"list_guestbook.html\";s:13:\"show_template\";s:9:\"show.html\";s:13:\"page_template\";s:9:\"page.html\";}', '100', '1');
 
