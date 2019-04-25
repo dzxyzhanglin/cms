@@ -82,7 +82,7 @@ class Menu extends Model
     final public function adminMenu($parentid, $with_self = false)
     {
         $parentid = (int) $parentid;
-        $result = $this->where(array('parentid' => $parentid, 'status' => 1))->order('listorder ASC,id ASC')->cache(60)->select()->toArray();
+        $result = $this->where(array('parentid' => $parentid, 'status' => 1, 'menu_type' => 1))->order('listorder ASC,id ASC')->cache(60)->select()->toArray();
         if (empty($result)) {
             $result = array();
         }
@@ -137,8 +137,9 @@ class Menu extends Model
         if ($tree && !empty($tree_nodes[(int) $tree])) {
             return $tree_nodes[$tree];
         }
+        $where = ['status' => 1];
         if ((int) $tree) {
-            $list = $this->order('listorder ASC,id ASC')->select()->toArray();
+            $list = $this->order('listorder ASC,id ASC')->where($where)->select()->toArray();
             foreach ($list as $key => $value) {
                 $list[$key]['url'] = $value['app'] . '/' . $value['controller'] . '/' . $value['action'];
             }
@@ -150,7 +151,7 @@ class Menu extends Model
                 }
             }
         } else {
-            $nodes = $this->order('listorder ASC,id ASC')->select()->toArray();
+            $nodes = $this->order('listorder ASC,id ASC')->where($where)->select()->toArray();
             foreach ($nodes as $key => $value) {
                 $nodes[$key]['url'] = $value['app'] . '/' . $value['controller'] . '/' . $value['action'];
             }

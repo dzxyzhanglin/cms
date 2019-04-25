@@ -136,6 +136,20 @@ class Member extends Adminbase
     }
 
     /**
+     * 会员删除
+     */
+    public function delete()
+    {
+        $id = $this->request->param('id/d');
+        empty($id) && $this->error('参数不能为空！');
+        if ($this->Member_Model->where(['id' => $id])->delete()) {
+            $this->success('操作成功！');
+        } else {
+            $this->error('操作失败！');
+        }
+    }
+
+    /**
      * 会员状态
      */
     public function setstate()

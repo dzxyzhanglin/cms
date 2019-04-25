@@ -23,7 +23,7 @@ class Menu extends Validate
         'title|名称' => 'require|chsAlphaNum',
         'app|模块' => 'require|alpha',
         'controller|控制器' => 'require|alpha',
-        'action|方法' => 'require|alpha',
+        'action|方法' => 'require|alphaDash',
     ];
 
     //定义验证提示

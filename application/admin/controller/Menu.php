@@ -31,8 +31,8 @@ class Menu extends Adminbase
     {
         if ($this->request->isAjax()) {
             $tree = new \util\Tree();
-            $tree->icon = array('&nbsp;&nbsp;&nbsp;│ ', '&nbsp;&nbsp;&nbsp;├─ ', '&nbsp;&nbsp;&nbsp;└─ ');
-            $tree->nbsp = '&nbsp;&nbsp;&nbsp;';
+            $tree->icon = array('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ ', '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ ', '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ ');
+            $tree->nbsp = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
             $result = Db::name('menu')->order(array('listorder', 'id' => 'DESC'))->select();
 
             $tree->init($result);
@@ -70,6 +70,8 @@ class Menu extends Adminbase
                 $r['selected'] = $r['id'] == $parentid ? 'selected' : '';
                 $array[] = $r;
             }
+            $tree->icon = array('&nbsp;&nbsp;&nbsp;&nbsp;│ ', '&nbsp;&nbsp;&nbsp;&nbsp;├─ ', '&nbsp;&nbsp;&nbsp;&nbsp;└─ ');
+            $tree->nbsp = '&nbsp;&nbsp;&nbsp;&nbsp;';
             $str = "<option value='\$id' \$selected>\$spacer \$title</option>";
             $tree->init($array);
             $select_categorys = $tree->get_tree(0, $str);
@@ -106,6 +108,8 @@ class Menu extends Adminbase
                 $r['selected'] = $r['id'] == $rs['parentid'] ? 'selected' : '';
                 $array[] = $r;
             }
+            $tree->icon = array('&nbsp;&nbsp;&nbsp;&nbsp;│ ', '&nbsp;&nbsp;&nbsp;&nbsp;├─ ', '&nbsp;&nbsp;&nbsp;&nbsp;└─ ');
+            $tree->nbsp = '&nbsp;&nbsp;&nbsp;&nbsp;';
             $str = "<option value='\$id' \$selected>\$spacer \$title</option>";
             $tree->init($array);
             $select_categorys = $tree->get_tree(0, $str);
