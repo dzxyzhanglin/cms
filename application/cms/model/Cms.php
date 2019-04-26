@@ -223,6 +223,42 @@ class Cms extends Modelbase
         return [$data, $dataExt];
     }
 
+    /**
+     * 查询解析可搜索字段信息
+     * @param $modelId
+     */
+    public function getSearchFieldList($modelId)
+    {
+        $list = self::where('modelid', $modelId)->where('status', 1)->order('listorder asc,id asc')->column("name,title,remark,type,ifsearch,setting");
+        $fieldList = [];
+        if (!empty($list)) {
+            foreach ($list as &$value) {
+                if ($value['ifsearch'] != 1) {
+                    continue;
+                }
+
+                $value['fieldArr'] = 'modelField';
+                //扩展配置
+                $value['setting'] = unserialize($value['setting']);
+                $value['options'] = $value['setting']['options'];
+                if ('' != $value['options']) {
+                    $value['options'] = parse_attr($value['options']);
+                }
+
+                if ($value['type'] == 'select' || $value['type'] == 'checkbox' || $value['type'] == 'radio') {
+                    $value['type'] = 'select';
+                } else if ($value['type'] == 'text' || $value['type'] == 'textarea') {
+                    $value['type'] = 'text';
+                } else {
+                    continue;
+                }
+
+                $fieldList[] = $value;
+            }
+        }
+        return $fieldList;
+    }
+
     //查询解析模型数据用以构造from表单
     public function getFieldList($modelId, $id = null)
     {

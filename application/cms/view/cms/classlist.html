@@ -6,6 +6,9 @@
 }
 </style>
 <div class="layui-form">
+    <!--搜索-->
+    <div class="searchTable">{include file="admin@searchItem" /}</div>
+    <!--表格-->
     <table class="layui-hide" id="table" lay-filter="table"></table>
 </div>
 <script type="text/html" id="toolbarDemo">
@@ -67,6 +70,7 @@ layui.use('table', function() {
                 { fixed: 'right', width: 150, title: '操作', toolbar: '#barTool' }
             ]
         ],
+        id: 'tableReload',
         page: {}
     });
 
@@ -176,6 +180,33 @@ layui.use('table', function() {
         }
     });
 
+    // 搜索
+    var active = {
+        reload: function() {
+            var searchField = [];
+            $('.search-item').each(function(index, item) {
+                var _this = $(item);
+                searchField.push(
+                    _this.attr('name') + ':' + _this.attr('ty') + ':' + _this.val()
+                );
+            });
+
+            //执行重载
+            table.reload('tableReload', {
+                page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                ,where: {
+                    searchField: searchField
+                }
+            });
+        }
+    };
+
+    $('.searchTable .layui-btn').on('click', function(){
+        var type = $(this).data('type');
+        active[type] ? active[type].call(this) : '';
+    });
 });
 </script>
 {/block}

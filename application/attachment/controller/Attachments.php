@@ -253,7 +253,7 @@ class Attachments extends Adminbase
         if ($info) {
             // 水印功能
             if ($watermark == '') {
-                if ($dir == 'images' && config('upload_thumb_water') == 1 && config('upload_thumb_water_pic') > 0) {
+                if ($dir == 'images' && config('upload_thumb_water') == 1 && config('upload_thumb_water_pic') != '') {
                     model('Attachment')->create_water($info->getRealPath(), config('upload_thumb_water_pic'));
                 }
             }

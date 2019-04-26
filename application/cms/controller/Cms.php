@@ -38,22 +38,39 @@ class Cms extends Adminbase
         $catid = $this->request->param('catid/d', 0);
         $limit = $this->request->param('limit/d', 10);
         $page = $this->request->param('page/d', 10);
+
+        //当前栏目信息
+        $catInfo = getCategory($catid);
+        if (empty($catInfo)) {
+            $this->error('该栏目不存在！');
+        }
+        //栏目所属模型
+        $modelid = $catInfo['modelid'];
+        //检查模型是否被禁用
+        if (!getModel($modelid, 'status')) {
+            $this->error('模型被禁用！');
+        }
+
         if ($this->request->isAjax()) {
-            //当前栏目信息
-            $catInfo = getCategory($catid);
-            if (empty($catInfo)) {
-                $this->error('该栏目不存在！');
+            $searchField = $this->request->param('searchField/a', '');
+            $where[] = ['catid', '=', $catid];
+            if (!empty($searchField)) {
+                foreach ($searchField as $field) {
+                    $frr =  explode(':', $field);
+                    if (!empty($frr[2])) {
+                        if ($frr[1] == 'text') {
+                            $where[] = [$frr[0], 'like', '%' . $frr[2] . '%'];
+                        } else if ($frr[1] == 'select') {
+                            $where[] = [$frr[0], '=', $frr[2]];
+                        }
+                    }
+                }
             }
-            //栏目所属模型
-            $modelid = $catInfo['modelid'];
-            //检查模型是否被禁用
-            if (!getModel($modelid, 'status')) {
-                $this->error('模型被禁用！');
-            }
+
             $modelCache = cache("Model");
             $tableName = $modelCache[$modelid]['tablename'];
-            $total = Db::name(ucwords($tableName))->where('catid', $catid)->count();
-            $list = Db::name(ucwords($tableName))->page($page, $limit)->where('catid', $catid)->order(['listorder', 'id' => 'desc'])->select();
+            $total = Db::name(ucwords($tableName))->where($where)->count();
+            $list = Db::name(ucwords($tableName))->page($page, $limit)->where($where)->order(['listorder', 'id' => 'desc'])->select();
             $_list = [];
             foreach ($list as $k => $v) {
                 $v['updatetime'] = date('Y-m-d H:i:s', $v['updatetime']);
@@ -63,6 +80,11 @@ class Cms extends Adminbase
             $result = array("code" => 0, "count" => $total, "data" => $_list);
             return json($result);
         }
+
+        // 当前可搜索字段
+        $searchFieldList = $this->Cms_Model->getSearchFieldList($modelid);
+        $this->assign('searchFieldList', $searchFieldList);
+
         $this->assign('catid', $catid);
         return $this->fetch();
 

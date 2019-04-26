@@ -61,8 +61,7 @@ class Attachment extends Model
     public function create_water($file = '', $watermark_img = '', $watermark_pos = '', $watermark_alpha = '')
     {
         $uploadPath = config('upload_path');
-        $path = $this->getFilePath($watermark_img, 1);
-        $thumb_water_pic = realpath($uploadPath . '/' . $path);
+        $thumb_water_pic = realpath($uploadPath . '/' . substr($watermark_img, strpos($watermark_img, 'images')));
         if (is_file($thumb_water_pic)) {
             // 读取图片
             $image = Image::open($file);

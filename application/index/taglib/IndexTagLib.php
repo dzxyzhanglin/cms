@@ -82,15 +82,21 @@ class IndexTagLib
         if (!$data['catid']) {
             return false;
         }
-        $data['where'] = isset($data['where']) ? $data['where'] : "status=1";
-        if (!isset($data['limit'])) {
+        $data['where'] = isset($data['where']) ? $data['where'] : "status=1"; 
+        if (isset($data['flag'])) {
+            $data['where'] .= " AND FIND_IN_SET('" . intval($data['flag']) . "',flag)";
+        }
+        $data['field'] = isset($data['field']) ? $data['field'] : '*';
+        // 标签
+        if (isset($data['tags']) && !empty($data['tags'])) {
+            $data['where'] .= " AND tags like '%". $data['tags'] ."%'";
+        }
+		
+		if (!isset($data['limit'])) {
             $data['limit'] = 0 == (int) $data['num'] ? 10 : (int) $data['num'];
         }
         if (empty($data['order'])) {
             $data['order'] = array('updatetime' => 'DESC', 'id' => 'DESC');
-        }
-        if (isset($data['flag'])) {
-            $data['where'] = "FIND_IN_SET('" . intval($data['flag']) . "',flag)";
         }
         $data['field'] = isset($data['field']) ? $data['field'] : '*';
         $moreifo = isset($data['moreinfo']) ? $data['moreinfo'] : 0;

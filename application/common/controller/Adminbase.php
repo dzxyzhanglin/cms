@@ -32,7 +32,8 @@ class Adminbase extends Base
         // 过滤不需要验证权限的行为
         $ignoreUrl = [
             'admin/index/index',
-            'admin/main/index'
+            'admin/main/index',
+			'attachment/ueditor/run'
         ];
 
         $rule = strtolower($this->request->module() . '/' . $this->request->controller() . '/' . $this->request->action());

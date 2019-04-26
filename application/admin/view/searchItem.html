@@ -1,0 +1,26 @@
+{if !empty($searchFieldList)}
+{volist name="searchFieldList" id="vo"}
+    {switch name="vo.type"}
+        {case value="text"}
+            {$vo.title}：
+            <div class="layui-inline" style="padding-bottom: 5px;">
+                <input class="layui-input search-item" ty="text" name="{$vo.name}" autocomplete="off">
+            </div>
+            &nbsp;
+        {/case}
+        {case value="select"}
+            {$vo.title}：
+            <div class="layui-inline" style="padding-bottom: 5px;">
+                <select class="search-item" ty="select" name="{$vo.name}">
+                    <option value="">请选择{$vo.title}</option>
+                    {volist name="vo.options" id="v"}
+                    <option value="{$key}">{$v}</option>
+                    {/volist}
+                </select>
+            </div>
+            &nbsp;
+        {/case}
+    {/switch}
+{/volist}
+<button class="layui-btn" data-type="reload">搜索</button>
+{/if}
